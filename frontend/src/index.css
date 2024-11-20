@@ -66,3 +66,237 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+
+/* new workout form */
+label, input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+form button:hover{
+  transform: translate(-2px, 2px);
+}
+/* need fix */
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+/* resume.js */
+
+.resume-image{
+  width: 90%;
+  margin-bottom: 20px;
+  box-shadow: 1px 0px 35px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  transition: .5s;
+}
+
+.resume-image:hover{
+  width: 93%;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #1aac83;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} 
+
+.green-btn{
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.green-btn:hover{
+  transform: translate( 0px, 4px);
+}
+
+.resumeForm{
+  border-radius: 5px;
+  padding: 20px;
+  height: 100%;
+}
+/* END resume/js */
+
+/* Nightmode */
+.nightmode{
+  position: fixed;
+  bottom: 18px;
+  right: 19px;
+  border-radius: 50%;
+  background-color: #555;
+  width: 50px;
+  height: 50px;
+  transition: .4s;
+  z-index: 3;
+}
+.nightmode:hover{
+  background-color: #272727;
+  cursor: pointer;
+}
+
+.nightmode img{
+  position: fixed;
+  bottom: 30px;
+  right: 31px;
+  width: 25px;
+  transition: .4s;
+}
+
+/* Info modal */
+.info-modal{
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 500px;
+  height: 500px;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 1.5px rgb(109, 109, 109);
+  border-radius: 10px;
+  box-shadow: 2px 2px 25px rgba(0,0,0,.3);
+  transition: .5s;
+  z-index: 3;
+  animation: topToMid .5s ease;
+  overflow-y: scroll;
+}
+
+.info-modal .top{
+  text-align: center;
+  margin: 20px 80px;
+}
+
+.info-modal .title{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info-modal .name{
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.info-modal .nametag{
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.stack-container{
+  margin: auto;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stack-container img{
+  width: 60px;
+  transition: .4s;
+}
+
+.stack-container img:hover{
+  width: 65px;
+}
+
+.tech{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech span{
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.info-modal .img-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.info-modal .profile{
+  width: 140px;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.react:hover{
+  animation: spin 2s linear infinite;
+}
+/* DARK BG*/
+.darkbg{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadeIn .5s ease;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes topToMid {
+    0%{
+      opacity: 0;
+      top: -100px;
+    }
+    100%{
+      opacity: 1;
+      top: 50%;
+    }
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: .5;
+  }
+}
