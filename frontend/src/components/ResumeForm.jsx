@@ -15,7 +15,7 @@ const ResumeForm = () => {
         const formdata = new FormData();
         formdata.append('file', file);
 
-        fetch('/upload', {
+        fetch('/api/resumes/upload', {
             method: 'POST',
             body: formdata
         })
@@ -65,6 +65,7 @@ const ResumeForm = () => {
                 onChange={e => setFile(e.target.files[0])} 
                 required
                 ref={fileInputRef}  // Attach ref here
+                accept="image/*" 
             />
             <button style={toggleDisable} className='green-btn' onClick={handleUpload}>Upload</button>
             <br/><br/>
