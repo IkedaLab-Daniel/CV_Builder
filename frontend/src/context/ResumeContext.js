@@ -12,6 +12,10 @@ export const resumesReducer = (state, action) => {
             return{
                 resumes: [...state.resumes, action.payload]
             }
+        case 'DELETE_RESUME':
+            return{
+                resumes: state.resumes.filter((r) => r._id !== action.payload._id)
+            }
         default:
             return state
     }

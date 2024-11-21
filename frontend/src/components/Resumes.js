@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useResumesContext } from '../hooks/useResumeContext';
+import deleteSVG from '../assets/delete.svg'
 
 const Resumes = () => {
     const { resumes, dispatch } = useResumesContext();
@@ -20,8 +21,19 @@ const Resumes = () => {
             .catch(err => console.log(err));  // Handle errors            
     }, [dispatch]);
 
-    // Reverse the resumes array before rendering
     const reversedResumes = [...resumes].reverse();
+
+    const handleClick = async (id) => {
+        const response = await fetch('/api/resumes/delete/'+id, {
+            method: 'DELETE'
+        })
+        const json = await response.json()
+
+        if (response.ok){
+            dispatch({type: 'DELETE_RESUME', payload: json})
+        }
+        
+    }
 
     return (
         <div>
@@ -31,12 +43,19 @@ const Resumes = () => {
             <div className='resume-container'>
                 {reversedResumes.length > 0 ? (
                     reversedResumes.map((resume, index) => (
-                        <div key={index}>
+                        <div className='resume-wrapper' key={index}>
+                            <img  
+                                src={deleteSVG}
+                                alt='delete'
+                                className='delete-svg'
+                                onClick={() => handleClick(resume._id)}
+                            />
                             <img 
                                 src={`http://localhost:4000/images/${resume.image}`} 
                                 alt={`resume-${index}`} 
                                 className='resume-image'
                             />
+                            <span>{resume._id}</span>
                         </div>
                     ))
                 ) : (

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const { uploadResume, getResumes } = require('../controllers/resumeController');
+const { uploadResume, getResumes, deleteResume } = require('../controllers/resumeController');
 
 // Multer setup
 const storage = multer.diskStorage({
@@ -19,5 +19,6 @@ const upload = multer({ storage });
 // Routes
 router.post('/upload', upload.single('file'), uploadResume);
 router.get('/getResumes', getResumes);
+router.delete('/delete/:id', deleteResume)
 
 module.exports = router;

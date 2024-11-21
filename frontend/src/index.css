@@ -106,17 +106,41 @@ div.error {
 
 /* resume.js */
 
-.resume-image{
-  width: 90%;
-  margin-bottom: 20px;
-  box-shadow: 1px 0px 35px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  transition: .5s;
+.resume-wrapper {
+  position: relative; /* Establish a positioning context for children */
+  display: inline-block; /* Optional: Keeps the layout inline if necessary */
+  margin-bottom: 20px; /* Add space between items */
 }
 
-.resume-image:hover{
+.resume-image {
+  width: 90%;
+  box-shadow: 1px 0px 35px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: 0.5s;
+  animation: left-to-right 1s;
+}
+
+.resume-image:hover {
   width: 93%;
 }
+
+.delete-svg {
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  width: 25px; 
+  height: 25px;
+  cursor: pointer; 
+  z-index: 2; 
+  transition: transform 0.4s ease; 
+  opacity: 0.5;
+}
+
+.delete-svg:hover {
+  transform: scale(1.2); 
+  opacity: 1;
+}
+
 
 input[type="file"]::file-selector-button {
   background-color: #1aac83;
@@ -172,6 +196,20 @@ input[type="file"]::file-selector-button {
   width: 25px;
   transition: .4s;
 }
+
+/* .delete-svg{
+  width: 30px;
+  position: absolute;
+  opacity: 0.4;
+  transform: translate(6px, 6px);
+  transition: .4s;
+}
+
+.delete-svg:hover{
+  width: 35px;
+  opacity: 0.8;
+  cursor: pointer;
+} */
 
 /* Info modal */
 .info-modal{
@@ -298,5 +336,21 @@ input[type="file"]::file-selector-button {
   }
   100%{
     opacity: .5;
+  }
+}
+
+@keyframes left-to-right {
+  0%{
+    transform: translate(-100px, 50px);
+    opacity: 0;
+    width: 70%;
+  }
+  50%{
+    opacity: .5;
+  }
+  100%{
+    transform:translate((0px, 0px));
+    opacity: 1;
+    width: 90%;
   }
 }
