@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 // components
 import WorkoutDetails from "../components/WorkoutDetails"
 import WorkoutForm from "../components/WorkoutForm"
@@ -13,8 +14,24 @@ import express from "../assets/express2.svg"
 import mongodb from "../assets/mongodb.svg"
 import callejas from "../assets/callejas.jpg"
 import sangalang from "../assets/sangalang.jpeg"
-const Home = () => {
 
+const Home = () => {
+  const {workouts, dispatch} = useWorkoutsContext()
+
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      const response = await fetch('/api/workouts')
+      const json = await response.json()
+
+      if (response.ok) {
+        dispatch({type: 'SET_WORKOUTS', payload: json})
+      }
+    }
+
+    fetchWorkouts()
+  }, [dispatch])
+
+  // Modal
   const [toggleModal, setToggleModal] = useState({display: "none"})
   const [count, setCount] = useState(2)
 
@@ -28,29 +45,15 @@ const Home = () => {
     }
   } 
 
-  const [workouts, setWorkouts] = useState(null)
-  useEffect(() => {
-    const fetchWorkouts = async () => {
-      const response = await fetch('/api/workouts')
-      const json = await response.json()
-
-      if (response.ok) {
-        setWorkouts(json)
-      }
-    }
-
-    fetchWorkouts()
-  }, [])
-
   return (
     <div className="home" >
       <div className="darkbg" style={toggleModal} onClick={handleToggleModal}></div>
-      {/* <div className="workouts">
+      <div className="workouts">
         {workouts && workouts.map(workout => (
           <WorkoutDetails workout={workout} key={workout._id} />
         ))}
       </div>
-      <WorkoutForm /> */}
+      <WorkoutForm /> 
       <Resumes />
       <ResumeForm />
       <div className="nightmode" onClick={handleToggleModal}>

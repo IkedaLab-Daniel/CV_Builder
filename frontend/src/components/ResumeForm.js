@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import toast from 'react-hot-toast';
-
+import { useResumesContext } from '../hooks/useResumeContext';
 const ResumeForm = () => {
+    const {dispatch} = useResumesContext()
     const [file, setFile] = useState();
     const [toggleDisable, setToggleDisable] = useState({
         background: 'rgb(66, 66, 66)', cursor: 'not-allowed', opacity: '0.3'
@@ -28,6 +29,7 @@ const ResumeForm = () => {
             // Clear file state and input after successful upload
             setFile(null);
             fileInputRef.current.value = '';  // Clear the file input field
+            dispatch({type:'CREATE_RESUME', payload: data})
         })  
         .catch(err => {
             console.log(err);
@@ -57,7 +59,7 @@ const ResumeForm = () => {
 
     return(
         <div className="resumeForm">
-            <h1>Upload a resume</h1>
+            <h1>Upload IMG Resume</h1>
             <input 
                 type="file" 
                 onChange={e => setFile(e.target.files[0])} 
