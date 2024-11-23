@@ -1,6 +1,17 @@
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
+/*    id    */
+#logo-long{
+  width: 150px;
+}
+
+#user-profile-logo{
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 3px solid #1aac83;
+}
 /* layout */
 :root {
   --primary: #1aac83;
@@ -238,6 +249,7 @@ input[type="file"]::file-selector-button {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  margin-top: 0;
 }
 
 .info-modal .name{
@@ -297,6 +309,15 @@ input[type="file"]::file-selector-button {
 .react:hover{
   animation: spin 2s linear infinite;
 }
+
+.info-modal .logo-container{
+  display: flex;
+  justify-content: center;
+}
+
+.info-modal .logo{
+  width: 150px;
+}
 /* DARK BG*/
 .darkbg{
   position: fixed;
@@ -337,6 +358,76 @@ form.signup, form.login {
   border-radius: 4px;
 }
 
+nav .hidden{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  width: 150px;
+  border-radius: 5px;
+  animation: right-to-left 1s;
+  right: 10px;
+  border: 2px solid var(--primary);
+  background-color: white;
+}
+
+nav .hidden.closing {
+  animation: left-to-right-new 1s forwards;
+}
+
+nav .hidden .btn-close{
+  text-align: center;
+  color: var(--error);
+  padding: 5px;
+  transition: .4s;
+}
+
+nav .hidden .btn-close:hover{
+  cursor: pointer;
+  background-color: #e7195a5a;
+}
+
+nav .hidden .btn{
+  padding: 10px;
+  border-bottom: 1px var(--primary) solid;
+  transition: .4s;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+nav .hidden .btn:hover{
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+nav .hidden .btn:active{
+  background-color: #a7a7a7;
+  cursor: pointer;
+}
+
+nav .hidden img{
+  width: 20px;
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
+nav .profile-name{
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: .4s;
+  border-radius: 15px;
+}
+
+nav .profile-name:hover{
+  cursor: pointer;
+  background-color: #e7e6e6;
+}
+
+nav .profile-name:active{
+  background-color: #c5c5c5;
+}
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -379,5 +470,27 @@ form.signup, form.login {
     transform:translate((0px, 0px));
     opacity: 1;
     width: 90%;
+  }
+}
+
+@keyframes right-to-left {
+  0%{
+    right: -50px;
+    opacity: 0;
+  }
+  100%{
+    right: 10px;
+    opacity: 1;
+  }
+}
+
+@keyframes left-to-right-new {
+  0% {
+    right: 10px;
+    opacity: 1;
+  }
+  100% {
+    right: -150px;
+    opacity: 0;
   }
 }

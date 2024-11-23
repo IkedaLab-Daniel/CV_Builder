@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
+import { Toaster } from "react-hot-toast"
 
 const Login = () => {
     const {login, isLoading, error} = useLogin()
@@ -31,6 +32,7 @@ const Login = () => {
             <button disabled={isLoading}>Log In</button>
 
             {error && <div className="error">{error}</div>}
+            <Toaster position="bottom-right" />
         </form>
     )
 }

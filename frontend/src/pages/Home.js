@@ -5,7 +5,7 @@ import { useState } from "react"
 // import WorkoutForm from "../components/WorkoutForm"
 import Resumes from "../components/Resumes"
 import ResumeForm from "../components/ResumeForm"
-
+import logo from '../assets/logo-favicon.png'
 // imgs
 import info from "../assets/info.svg"
 import react from "../assets/react.svg"
@@ -61,7 +61,10 @@ const Home = () => {
       </div>
       <div className='info-modal' style={toggleModal}>
         <p className="top">In Partial Fulfillment of the Requirements for the Subject Web Programming</p>
-        <p className="title">CV Builder</p>
+        <div className="logo-container">
+                    <img src={logo} className="logo" alt="logo" />
+        </div>
+        <p className="title">CV Drive</p>
         <p className="top">Presented To:</p>
         <p className="name">Sir Aaron Batac, MIT</p>
         <p className="nametag">WEBPROG Instructor</p>
