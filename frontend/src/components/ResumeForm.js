@@ -1,23 +1,38 @@
 import { useEffect, useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { useResumesContext } from '../hooks/useResumeContext';
+import { useAuthContext } from '../hooks/useAuthContext';
+
 const ResumeForm = () => {
+    const { user } = useAuthContext()
     const {dispatch} = useResumesContext()
     const [file, setFile] = useState();
     const [toggleDisable, setToggleDisable] = useState({
         background: 'rgb(66, 66, 66)', cursor: 'not-allowed', opacity: '0.3'
     });
+
     
     // Use a ref for the input element to reset it
     const fileInputRef = useRef(null);
 
     const handleUpload = (e) => {
+        e.preventDefault()
+
         const formdata = new FormData();
         formdata.append('file', file);
 
+        if (!user){
+            console.log('error');
+            return
+        }
+
         fetch('/api/resumes/upload', {
             method: 'POST',
-            body: formdata
+            body: formdata,
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+
         })
         .then(res => res.json())  // Assuming the server responds with JSON
         .then(data => {

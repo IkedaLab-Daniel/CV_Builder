@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { uploadResume, getResumes, deleteResume } = require('../controllers/resumeController');
+const requireAuth = require('../middleware/requireAuth')
 
 // Multer setup
 const storage = multer.diskStorage({
@@ -15,6 +16,9 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+// require auth for all resume routes
+router.use(requireAuth)
 
 // Routes
 router.post('/upload', upload.single('file'), uploadResume);

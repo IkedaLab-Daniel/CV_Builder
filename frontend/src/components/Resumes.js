@@ -2,12 +2,19 @@ import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useResumesContext } from '../hooks/useResumeContext';
 import deleteSVG from '../assets/delete.svg'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const Resumes = () => {
     const { resumes, dispatch } = useResumesContext();
-
+    const { user } = useAuthContext()
     useEffect(() => {
-        fetch('/api/resumes/getResumes')
+
+        const fetchResumes = () => {
+            fetch('/api/resumes/getResumes',{
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -17,20 +24,35 @@ const Resumes = () => {
             .then(data => {
                 console.log(data); // Optionally log the response to verify the structure
                 dispatch({ type: 'SET_RESUMES', payload: data });
+                
             })
-            .catch(err => console.log(err));  // Handle errors            
-    }, [dispatch]);
+            .catch(err => console.log(err));  // Handle errors  
+        }
+
+        if (user){
+            fetchResumes()
+        }      
+    }, [dispatch, user]);
 
     const reversedResumes = [...resumes].reverse();
 
     const handleClick = async (id) => {
+
+        if (!user){
+            console.log('Cant delete if no user logged in');
+            return
+        }
         const response = await fetch('/api/resumes/delete/'+id, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         })
+
         const json = await response.json()
 
         if (response.ok){
-            dispatch({type: 'DELETE_RESUME', payload: json})
+            dispatch({type: 'DELETE_RESUME', payload: json})            
         }
         
     }
