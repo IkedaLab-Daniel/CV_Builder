@@ -84,6 +84,16 @@ const Navbar = () => {
         dateofbirth,
     };
     await updateUser(user.userData._id, updatedData, user.token);
+    if (error == null){
+      setFirstName('')
+      setMiddleName('')
+      setLastName('')
+      setSuffix('')
+      setEmail('')
+      setUsername('')
+      setDateofbirth('')
+      setEditmode(false)
+    }
 };
 
   return (
