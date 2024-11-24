@@ -21,7 +21,7 @@ const Navbar = () => {
     logout()
     toast.success('User logged-out', {
       duration: 4000,  // 4 seconds
-  });
+    });
   }
 
   const handleMenu = () => {

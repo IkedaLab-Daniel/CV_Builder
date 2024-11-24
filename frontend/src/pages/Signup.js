@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignup"
+import { Toaster } from "react-hot-toast"
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -44,6 +45,7 @@ const Signup = () => {
 
             <button disabled={isloading}>Sign Up</button>
             {error && <div className="error">{error}</div>}
+            <Toaster position="bottom-right" />
         </form>
     )
 }

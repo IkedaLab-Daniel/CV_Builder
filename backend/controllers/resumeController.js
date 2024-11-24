@@ -4,7 +4,8 @@ const path = require('path');
 
 // Upload Resume
 const uploadResume = (req, res) => {
-  ResumeModel.create({ image: req.file.filename })
+  const user_id = req.user._id
+  ResumeModel.create({ image: req.file.filename, user_id: user_id })
     .then(result => res.json(result))
     .catch(err => {
       console.error(err);
@@ -14,7 +15,9 @@ const uploadResume = (req, res) => {
 
 // Get Resumes
 const getResumes = (req, res) => {
-  ResumeModel.find({})
+  const user_id = req.user._id
+
+  ResumeModel.find({user_id})
     .then(resumes => res.json(resumes))
     .catch(err => {
       console.error(err);

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import toast from "react-hot-toast";
 
 export const useSignup = () => {
     const [error, setError] = useState(null)
@@ -27,6 +28,9 @@ export const useSignup = () => {
             // update the auth contect
             dispatch({type: 'LOGIN', payload: json})
             setIsLoading(false)
+            toast.success('Login Successful', {
+                duration: 4000,  // 4 seconds
+              });
         }
     }
 

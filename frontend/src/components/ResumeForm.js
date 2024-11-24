@@ -83,9 +83,6 @@ const ResumeForm = () => {
                 accept="image/*" 
             />
             <button style={toggleDisable} className='green-btn' onClick={handleUpload}>Upload</button>
-            <br/><br/>
-            <span>Or</span>
-            <h3>Build Resume</h3>
         </div>
     )
 }

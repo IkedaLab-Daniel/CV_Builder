@@ -222,6 +222,24 @@ input[type="file"]::file-selector-button {
   cursor: pointer;
 } */
 
+.no-file{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-file img{
+  width: 100px;
+  opacity: .6;
+}
+
+.no-file p{
+  font-size: 1.5rem;
+  opacity: .6;
+}
+
 /* Info modal */
 .info-modal{
   background-color: rgba(255, 255, 255, 0.8);
@@ -372,7 +390,7 @@ nav .hidden{
 }
 
 nav .hidden.closing {
-  animation: left-to-right-new 1s forwards;
+  animation: left-to-right-new .5s forwards;
 }
 
 nav .hidden .btn-close{

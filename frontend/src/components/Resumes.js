@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { useResumesContext } from '../hooks/useResumeContext';
 import deleteSVG from '../assets/delete.svg'
 import { useAuthContext } from '../hooks/useAuthContext'
 
+// imgs
+import noFile from '../assets/no-file.png'
 const Resumes = () => {
     const { resumes, dispatch } = useResumesContext();
     const { user } = useAuthContext()
@@ -52,7 +54,10 @@ const Resumes = () => {
         const json = await response.json()
 
         if (response.ok){
-            dispatch({type: 'DELETE_RESUME', payload: json})            
+            dispatch({type: 'DELETE_RESUME', payload: json})   
+            toast.success('File Deleted', {
+                duration: 4000,  // 4 seconds
+              });
         }
         
     }
@@ -81,7 +86,15 @@ const Resumes = () => {
                         </div>
                     ))
                 ) : (
-                    <p>No resumes found.</p>  // Message when no resumes are available
+                    <div className='no-file'>
+                        <img
+                            src={noFile}
+                            alt='no-file'
+                        />
+                        <p>No file found</p>  
+                    </div>
+                    
+
                 )}
             </div>
             <Toaster position="bottom-right" />
