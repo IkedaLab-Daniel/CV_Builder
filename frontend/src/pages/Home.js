@@ -59,6 +59,8 @@ const Home = () => {
       <div className="nightmode" onClick={handleToggleModal}>
         <img src={info} alt="moon"/>
       </div>
+
+      {/* Information Modal */}
       <div className='info-modal' style={toggleModal}>
         <p className="top">In Partial Fulfillment of the Requirements for the Subject Web Programming</p>
         <div className="logo-container">
@@ -102,6 +104,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+
     </div>
   )
 }

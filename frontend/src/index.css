@@ -369,11 +369,18 @@ nav button {
 }
 /* auth forms */
 form.signup, form.login {
-  max-width: 400px;
+  width: 700px;
   margin: 40px auto;
   padding: 20px;
   background: #fff;
   border-radius: 4px;
+}
+
+form .dual-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
 }
 
 nav .hidden{
@@ -383,7 +390,7 @@ nav .hidden{
   top: 100px;
   width: 150px;
   border-radius: 5px;
-  animation: right-to-left 1s;
+  animation: right-to-left .5s;
   right: 10px;
   border: 2px solid var(--primary);
   background-color: white;
@@ -445,6 +452,102 @@ nav .profile-name:hover{
 
 nav .profile-name:active{
   background-color: #c5c5c5;
+}
+
+
+/* Profile Modal */
+.profile-modal{
+  background-color: rgba(248, 248, 248, 0.9);
+  width: 700px;
+  height: auto;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 1.5px rgb(109, 109, 109);
+  border-radius: 15px;
+  box-shadow: 2px 2px 25px rgba(0,0,0,.3);
+  transition: .5s;
+  z-index: 3;
+  animation: topToMid .5s ease;
+}
+
+.profile-modal .modal-context{
+  display: flex;
+}
+.profile-modal .left{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.profile-modal .left img{
+  width: 150px;
+  display: inline-block;
+  border: 2px black solid;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.profile-modal .right{
+  width: 70%;
+  margin-bottom: 50px;
+}
+
+.profile-modal .right label{
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.profile-modal .right span{
+  font-size: 1.5rem;
+}
+
+.profile-modal h2{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.profile-modal.closing {
+  animation: midToTop 0.5s ease;
+}
+
+.darkbg.closing {
+  animation: fadeout 0.5s ease;
+}
+
+.profile-modal .btn-container{
+  display: flex;
+  justify-content: flex-end;
+  border-top: 2px solid var(--primary);
+}
+
+.profile-modal .btn-container span{
+  border: solid var(--primary) 2px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 10px 20px 10px 0;
+  color: var(--primary);
+  width: 50px;
+  text-align: center;
+  transition: .4s;
+}
+
+
+
+.btn-container .edit:hover{
+  background-color: var(--primary);
+  cursor: pointer;
+  color: white;
+}
+
+.btn-container .close-profile:hover{
+  background-color: var(--error);
+  cursor: pointer;
+  color: white;
+  border: 2px solid var(--error);
 }
 @keyframes spin {
   from {
@@ -509,6 +612,26 @@ nav .profile-name:active{
   }
   100% {
     right: -150px;
+    opacity: 0;
+  }
+}
+
+@keyframes midToTop {
+  0% {
+    opacity: 1;
+    top: 50%;
+  }
+  100% {
+    opacity: 0;
+    top: -100px;
+  }
+}
+
+@keyframes fadeout {
+  0%{
+    opacity: 0.5;
+  }
+  100%{
     opacity: 0;
   }
 }
