@@ -3,6 +3,7 @@ import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useState } from 'react'
 import toast, {Toaster} from 'react-hot-toast'
+import { useUpdateUser } from '../hooks/useUpdateUser'
 // imgs
 import logoLong from '../assets/logo-long.png'
 import profileLogo from '../assets/profile-logo.svg'
@@ -10,12 +11,23 @@ import logoutLogo from '../assets/logout.svg'
 import defaultProfile from '../assets/default.svg'
 
 const Navbar = () => {
+  const {updateUser, isLoading, error} = useUpdateUser()
+
   const [toggleMenu, setToggleMenu] = useState(false) // Tracks whether the menu is open
   const [isAnimating, setIsAnimating] = useState(false) // Tracks if the reverse animation is running
   const [toggleModal, setToggleModal] = useState({display: "none"})
   const { user } = useAuthContext()
   const { logout } = useLogout()
 
+  const [email, setEmail] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [middleName, setMiddleName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [suffix, setSuffix] = useState('')
+  const [username, setUsername] = useState('')
+  const [dateofbirth, setDateofbirth] = useState('')
+
+  const [editmode, setEditmode] = useState(false)
   const [isClosing, setIsClosing] = useState(false);
 
   const handleToggleModal = () => {
@@ -52,6 +64,27 @@ const Navbar = () => {
       setToggleMenu(true)
     }
   }
+
+  const handleEdit = () => {
+    setEditmode(true)
+  }
+
+  const handleCancelEdit = () => {
+    setEditmode(false)
+  }
+
+  const handleUpdateUser = async () => {
+    const updatedData = {
+        firstName,
+        middleName,
+        lastName,
+        suffix,
+        username,
+        email,
+        dateofbirth,
+    };
+    await updateUser(user.userData._id, updatedData, user.token);
+};
 
   return (
     <header>
@@ -109,18 +142,103 @@ const Navbar = () => {
 
       {/* Profile Modal */}
       {user && (
+
         <div
           className={`profile-modal ${isClosing ? 'closing' : ''}`}
           style={toggleModal}
         >
-          <h2>Profile</h2>
-          <div className='modal-context'>
+          <h2>
+            {editmode ? 'Edit Profile' : 'Profile'}
+          </h2>
+
+          {editmode ? (
+
+              <div className='modal-context'>
+                          
+                            
+              <div className='left'>
+                {!user.userData.profileImg && (
+                  <img src={defaultProfile} alt='user' />
+                )}
+                <input
+                  type='file'
+                  accept='image/*'
+                  className='custom-input'
+                />
+              </div>
+
+              <div className='right'>
+                  <label className='label-editing'>First Name:</label>
+                  <input 
+                    type='text'
+                    onChange={(e) => setFirstName(e.target.value)}
+                    value={firstName}
+                    placeholder={user.userData.firstName}
+                  />
+
+                  <label className='label-editing'>Middle Name:</label>
+                  <input 
+                    type='text'
+                    onChange={(e) => setMiddleName(e.target.value)}
+                    value={middleName}
+                    placeholder={user.userData.middleName}
+
+                  />
+
+                  <label className='label-editing'>Last Name:</label>
+                  <input 
+                    type='text'
+                    onChange={(e) => setLastName(e.target.value)}
+                    value={lastName}
+                    placeholder={user.userData.lastName}
+
+                  />
+
+                  <label className='label-editing'>Suffix:</label>
+                  <input 
+                    type='text'
+                    onChange={(e) => setSuffix(e.target.value)}
+                    value={suffix}
+                    placeholder={user.userData.suffix}
+
+                  />  
+                  <label className='label-editing'>Username:</label>
+                  <input 
+                    type='text'
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                    placeholder={user.userData.username}
+
+                  />  
+
+                  <label className='label-editing'>Email:</label>
+                  <input 
+                    type='email'
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    placeholder={user.userData.email}
+
+                  />  
+
+                  <label className='label-editing'>Birthday:</label>
+                  <input 
+                    type='date'
+                    onChange={(e) => setDateofbirth(e.target.value)}
+                    value={dateofbirth}
+                    placeholder={user.userData.dateofbirth}
+
+                  />  
+              </div>
+              </div>
+
+            
+          ) : (
+            <div className='modal-context'>
             
             <div className='left'>
               {!user.userData.profileImg && (
                 <img src={defaultProfile} alt='user' />
               )}
-              <p>Upload</p>
             </div>
             
             <div className='right'>
@@ -140,13 +258,20 @@ const Navbar = () => {
                 <span>{user.userData._id}</span>
             </div>
           </div>
+          )}
+
+          
+
+          
           
           
           
           <div className='btn-container'>
-            <span className='edit'>Edit</span>
-            <span className='close-profile' onClick={handleToggleModal}>
-              Close
+            <span className='edit' onClick={editmode ? handleUpdateUser : handleEdit}>
+              {editmode ? 'Save' : 'Edit'}
+            </span>
+            <span className='close-profile' onClick={editmode ? handleCancelEdit : handleToggleModal}>
+              {editmode ? 'Cancel' : 'Close'}
             </span>
           </div>
         </div>

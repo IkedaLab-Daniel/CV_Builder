@@ -476,7 +476,7 @@ nav .profile-name:active{
   display: flex;
 }
 .profile-modal .left{
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: baseline;
@@ -492,7 +492,7 @@ nav .profile-name:active{
 }
 
 .profile-modal .right{
-  width: 70%;
+  width: 60%;
   margin-bottom: 50px;
 }
 
@@ -503,6 +503,16 @@ nav .profile-name:active{
 
 .profile-modal .right span{
   font-size: 1.5rem;
+}
+
+.label-editing{
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.profile-modal .right input{
+  margin-top: 0;
+  width: 90%;
 }
 
 .profile-modal h2{

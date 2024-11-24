@@ -3,7 +3,8 @@ const express = require('express')
 // controller functions
 const {
     loginUser,
-    singupUser
+    singupUser,
+    updateUser
 } = require('../controllers/userController')
 
 const router = express.Router()
@@ -14,5 +15,7 @@ router.post('/login', loginUser)
 // signup route
 router.post('/signup', singupUser)
 
+// update route
+router.patch('/:id', updateUser)
 
 module.exports = router
