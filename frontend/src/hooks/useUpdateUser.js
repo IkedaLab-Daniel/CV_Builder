@@ -37,7 +37,7 @@ export const useUpdateUser = () => {
             localStorage.setItem('user', JSON.stringify(updatedUser));
 
             // Update auth context
-            dispatch({ type: 'UPDATE_USER', payload: updatedUser });
+            dispatch({ type: 'LOGIN', payload: updatedUser });
 
             setIsLoading(false);
             toast.success('User updated successfully', {
