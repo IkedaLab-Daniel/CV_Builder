@@ -53,8 +53,33 @@ const updateUser = async (req, res) => {
     res.status(200).json(user)
   }
 
+  // update profile image
+  const updateProfileImage = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      // If a file is uploaded, add its filename to the user's data
+      let updatedData = { ...req.body };
+      if (req.file) {
+        updatedData.profileImage = req.file.filename;
+      }
+  
+      const updatedUser = await User.findByIdAndUpdate(id, updatedData, {
+        new: true, // Return the updated user
+      });
+  
+      if (!updatedUser) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      res.status(200).json(updatedUser);
+    } catch (error) {
+      res.status(500).json({ message: 'Error updating user', error });
+    }
+  };
 module.exports = {
     loginUser,
     singupUser,
-    updateUser
+    updateUser,
+    updateProfileImage
 }

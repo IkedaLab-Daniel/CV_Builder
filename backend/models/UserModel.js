@@ -38,7 +38,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    profileImg:{
+    profileImage:{
         type: String
     }
 }) 
@@ -66,7 +66,7 @@ userSchema.statics.signup = async function(email, password, firstName, middleNam
     const daniel = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, daniel)
 
-    const user = await this.create({ email, password: hash, firstName, middleName, lastName, suffix, username, dateofbirth, profileImg: null})
+    const user = await this.create({ email, password: hash, firstName, middleName, lastName, suffix, username, dateofbirth})
 
     return user
 }
