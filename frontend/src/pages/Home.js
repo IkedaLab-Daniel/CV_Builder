@@ -68,7 +68,7 @@ const Home = () => {
         </div>
         <p className="title">CV Drive</p>
         <p className="top">Presented To:</p>
-        <p className="name">Sir Aaron Batac, MIT</p>
+        <p className="name">Sir Aaron L. Batac, MIT</p>
         <p className="nametag">WEBPROG Instructor</p>
         <br/>
         <p className="top">Presented By:</p>

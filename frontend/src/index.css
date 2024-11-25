@@ -7,9 +7,12 @@
 }
 
 #user-profile-logo{
-  width: 50px;
-  margin-right: 10px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+}
+
+#user-profile-logo-big{
   border: 3px solid #1aac83;
 }
 /* layout */
@@ -458,7 +461,7 @@ nav .profile-name:active{
 /* Profile Modal */
 .profile-modal{
   background-color: rgba(248, 248, 248, 0.9);
-  width: 700px;
+  width: 800px;
   height: auto;  
   position: fixed;
   top: 50%;
@@ -522,6 +525,25 @@ nav .profile-name:active{
 
 .profile-modal.closing {
   animation: midToTop 0.5s ease;
+}
+
+.profile-modal .upload-profile{
+  background-color: #1aac83;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.profile-modal .upload-profile:hover{
+  background-color: #58bda1;
+}
+
+.profile-modal .upload-profile:active{
+  background-color: #6dceb2;
+  transform: translate(0px, 10px);
 }
 
 .darkbg.closing {

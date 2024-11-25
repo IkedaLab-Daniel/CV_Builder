@@ -19,17 +19,16 @@ const Navbar = () => {
   const { user } = useAuthContext()
   const { logout } = useLogout()
 
-  const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
   const [middleName, setMiddleName] = useState('')
   const [lastName, setLastName] = useState('')
   const [suffix, setSuffix] = useState('')
   const [username, setUsername] = useState('')
   const [dateofbirth, setDateofbirth] = useState('')
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [editmode, setEditmode] = useState(false)
   const [isClosing, setIsClosing] = useState(false);
-
   const handleToggleModal = () => {
     if (toggleModal.display === "block") {
       setIsClosing(true);
@@ -74,27 +73,58 @@ const Navbar = () => {
   }
 
   const handleUpdateUser = async () => {
+    if (!firstName.trim() || !lastName.trim() || !username.trim() || !dateofbirth.trim()) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
     const updatedData = {
         firstName,
         middleName,
         lastName,
         suffix,
         username,
-        email,
         dateofbirth,
     };
     await updateUser(user.userData._id, updatedData, user.token);
     if (error == null){
-      setFirstName('')
-      setMiddleName('')
-      setLastName('')
-      setSuffix('')
-      setEmail('')
-      setUsername('')
-      setDateofbirth('')
       setEditmode(false)
     }
 };
+
+const handleUploadImage = async () => {
+  if (!selectedImage) {
+    toast.error("Please select an image.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('profileImage', selectedImage);
+
+  try {
+    const response = await fetch(`/api/user/profile/${user.userData._id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+      body: formData,
+    });
+
+    if (response.ok) {
+      const updatedUser = await response.json();
+      toast.success("Profile image updated successfully.");
+      setSelectedImage(null);
+      // Update user context to reflect the new profile image
+      user.userData.profileImage = updatedUser.profileImage;
+    } else {
+      const errorData = await response.json();
+      toast.error(errorData.message || "Failed to upload image.");
+    }
+  } catch (error) {
+    toast.error("An error occurred while uploading the image.");
+  }
+};
+
 
   return (
     <header>
@@ -111,14 +141,17 @@ const Navbar = () => {
           {user && (
             <div>
               <div className='profile-name' onClick={handleMenu}>
-                  <img 
-                      src={defaultProfile}
+                  <img
+                      src={
+                        user.userData.profileImage
+                          ? `http://localhost:4000/images/${user.userData.profileImage}`
+                          : defaultProfile
+                      }
                       alt='user'
                       id='user-profile-logo'
-                    />
-                  <span>
-                      
-                    {user.userData.firstName} {user.userData.lastName} 
+                  />
+                  <span style={{marginLeft: "15px"}}>
+                    {user.userData.firstName} {user.userData.lastName} {user.userData.suffix}
                   </span>
               </div>
               
@@ -167,15 +200,26 @@ const Navbar = () => {
                           
                             
               <div className='left'>
-                {!user.userData.profileImg && (
-                  <img src={defaultProfile} alt='user' />
-                )}
+                  <img
+                      src={
+                        user.userData.profileImage
+                          ? `http://localhost:4000/images/${user.userData.profileImage}`
+                          : defaultProfile
+                      }
+                      alt='user'
+                      id='user-profile-logo-big'
+                  />
                 <input
-                  type='file'
-                  accept='image/*'
-                  className='custom-input'
-                />
+                    type='file'
+                    accept='image/*'
+                    className='custom-input'
+                    onChange={(e) => setSelectedImage(e.target.files[0])}
+                  />
+                   <span className='upload-profile' onClick={handleUploadImage} style={selectedImage ? { } : {background: "gray", cursor: "not-allowed", opacity: "0.6"}}>
+                    {selectedImage ? 'Upload and Update' : 'Select an image first'}
+                   </span>
               </div>
+             
 
               <div className='right'>
                   <label className='label-editing'>First Name:</label>
@@ -192,7 +236,6 @@ const Navbar = () => {
                     onChange={(e) => setMiddleName(e.target.value)}
                     value={middleName}
                     placeholder={user.userData.middleName}
-
                   />
 
                   <label className='label-editing'>Last Name:</label>
@@ -201,7 +244,6 @@ const Navbar = () => {
                     onChange={(e) => setLastName(e.target.value)}
                     value={lastName}
                     placeholder={user.userData.lastName}
-
                   />
 
                   <label className='label-editing'>Suffix:</label>
@@ -218,16 +260,6 @@ const Navbar = () => {
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                     placeholder={user.userData.username}
-
-                  />  
-
-                  <label className='label-editing'>Email:</label>
-                  <input 
-                    type='email'
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    placeholder={user.userData.email}
-
                   />  
 
                   <label className='label-editing'>Birthday:</label>
@@ -236,7 +268,6 @@ const Navbar = () => {
                     onChange={(e) => setDateofbirth(e.target.value)}
                     value={dateofbirth}
                     placeholder={user.userData.dateofbirth}
-
                   />  
               </div>
               </div>
@@ -246,9 +277,15 @@ const Navbar = () => {
             <div className='modal-context'>
             
             <div className='left'>
-              {!user.userData.profileImg && (
-                <img src={defaultProfile} alt='user' />
-              )}
+            <img
+                      src={
+                        user.userData.profileImage
+                          ? `http://localhost:4000/images/${user.userData.profileImage}`
+                          : defaultProfile
+                      }
+                      alt='user'
+                      id='user-profile-logo-big'
+                  />
             </div>
             
             <div className='right'>
