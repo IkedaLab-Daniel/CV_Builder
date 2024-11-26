@@ -79,25 +79,24 @@ const Resumes = () => {
 
                         return (
                             <div className="resume-wrapper" key={index}>
-                                <img
-                                    src={deleteSVG}
-                                    alt="delete"
-                                    className="delete-svg"
-                                    onClick={() => handleClick(resume._id)}
-                                />
-                                {fileExtension.match(/(jpg|jpeg|png|gif|bmp|webp)$/) ? (
-                                    <img
-                                        src={`http://localhost:4000/images/${resume.image}`}
-                                        alt={`resume-${index}`}
-                                        className="resume-image"
-                                    />
+                                {fileExtension.match(/(jpg|jpeg|png|gif|bmp|webp|svg)$/) ? (
+                                    <div className='resume-image-container'>
+                                        <img
+                                            src={`http://localhost:4000/images/${resume.image}`}
+                                            alt={`resume-${index}`}
+                                            className="resume-image"
+                                        />
+                                        <img
+                                                src={deleteSVG}
+                                                alt="delete"
+                                                className="delete-svg"
+                                                onClick={() => handleClick(resume._id)}
+                                            />
+                                    </div>
+                                    
+                                    
                                 ) : (
                                     <div className={`file-preview file-${fileExtension}`}>
-                                        {/* <span className={`file-icon file-icon-${fileExtension}`}>
-                                            {fileExtension === 'pdf' && '📄 PDF'}
-                                            {fileExtension === 'doc' || fileExtension === 'docx' ? '📄 DOC' : ''}
-                                            {fileExtension === 'ppt' || fileExtension === 'pptx' ? '📊 PPT' : ''}
-                                        </span> */}
                                         {fileExtension === 'pdf' && (
                                             <img className={`file-icon file-icon-${fileExtension}`}
                                                 src={pdf}
@@ -130,6 +129,15 @@ const Resumes = () => {
                                         )}
                                         
                                         <span className="file-name">{resume.image}</span>
+
+                                        <div className='file-btns'>
+                                            <img
+                                                src={deleteSVG}
+                                                alt="delete"
+                                                className="delete-svg"
+                                                onClick={() => handleClick(resume._id)}
+                                            />
+                                        </div>
                                     </div>  
                                 )}
                             </div>

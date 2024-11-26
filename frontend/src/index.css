@@ -127,7 +127,7 @@ div.error {
 }
 
 .resume-image {
-  width: 90%;
+  width: 80%;
   box-shadow: 1px 0px 35px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   transition: 0.5s;
@@ -135,24 +135,23 @@ div.error {
 }
 
 .resume-image:hover {
-  width: 93%;
+  width: 82%;
 }
 
+.file-btns{
+  position: absolute;
+  right: 25%;
+}
 .delete-svg {
-  position: absolute; 
-  top: 10px; 
-  right: 10px; 
-  width: 25px; 
-  height: 25px;
-  cursor: pointer; 
-  z-index: 2; 
-  transition: transform 0.4s ease; 
-  opacity: 0.5;
+  width: 30px;
+  position: relative;
+  transition: .4s;
 }
 
 .delete-svg:hover {
   transform: scale(1.2); 
   opacity: 1;
+  cursor: pointer;
 }
 
 
@@ -247,8 +246,14 @@ input[type="file"]::file-selector-button {
   width: 80%;
   display: flex;
   align-items: center;
-  border: black 2px solid;
   border-radius: 15px;
+  box-shadow: 0px 0px 15px 0px rgba(86, 86, 86, 0.4);
+  transition: .4s;
+}
+
+.file-preview:hover{
+  box-shadow: 0px 0px 20px 0px rgba(86,86,86,0.6);
+  cursor: pointer;
 }
 
 .file-preview span{
@@ -257,8 +262,53 @@ input[type="file"]::file-selector-button {
 }
 
 .file-icon{
-  width: 50px;
+  width: 60px;
   margin: 20px;
+}
+
+.file-pdf{
+  background-color: #ff8282;
+  transition: .4s;
+}
+
+.file-pdf:hover{
+  background-color: #ff6a6a;
+}
+
+.file-doc{
+  background-color: #82c9ff;
+  transition: .4s;
+}
+
+.file-doc:hover{
+  background-color: #58b7ff;
+}
+
+.file-docx{
+  background-color: #82c9ff;
+  transition: .4s;
+}
+
+.file-docx:hover{
+  background-color: #58b7ff;
+}
+
+.file-ppt{
+  background-color: #ffa182;
+  transition: .4s;
+}
+
+.file-ppt:hover{
+  background-color: #ff8962;
+}
+
+.file-pptx{
+  background-color: #ffa182;
+  transition: .4s;
+}
+
+.file-pptx:hover{
+  background-color: #ff8962;
 }
 
 /* Info modal */

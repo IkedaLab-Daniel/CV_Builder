@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const workoutRoutes = require('./routes/workouts');
 const resumeRoutes = require('./routes/resumeRoutes');
 const userRoutes = require('./routes/User')
 // express app
@@ -17,7 +16,6 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('/api/workouts', workoutRoutes);
 app.use('/api/resumes', resumeRoutes);
 app.use('/api/user', userRoutes);
 
