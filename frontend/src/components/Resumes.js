@@ -9,6 +9,8 @@ import noFile from '../assets/no-file.png';
 import doc from '../assets/doc.svg'
 import pdf from '../assets/pdf.svg'
 import ppt from '../assets/ppt.svg'
+import downloadSVG from '../assets/download.svg'
+
 const Resumes = () => {
     const { resumes, dispatch } = useResumesContext();
     const { user } = useAuthContext();
@@ -62,6 +64,53 @@ const Resumes = () => {
         }
     };
 
+    // download file
+const handleDownload = async (id) => {
+        if (!user) {
+            console.log('Cannot download if no user is logged in');
+            return;
+        }
+
+        try {
+            // Find the resume by ID
+            const resume = resumes.find((resume) => resume._id === id);
+            if (!resume) {
+                console.error('Resume not found');
+                return;
+            }
+
+            const filename = resume.image; // Assuming `image` holds the filename
+            const response = await fetch(`api/resumes/download/${filename}`, {
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to download file');
+            }
+
+            // Convert the response to a blob
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+
+            // Create a temporary link to download the file
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename; // Set the filename
+            document.body.appendChild(a);
+            a.click(); // Trigger the download
+            a.remove(); // Clean up the element
+
+            // Optionally, revoke the object URL after some delay
+            setTimeout(() => window.URL.revokeObjectURL(url), 1000);
+        } catch (error) {
+            console.error('Error downloading file:', error);
+            toast.error('Failed to download file');
+        }
+};
+
+
     // Helper function to extract file extension
     const getFileExtension = (filename) => {
         return filename.split('.').pop().toLowerCase();
@@ -81,21 +130,34 @@ const Resumes = () => {
                             <div className="resume-wrapper" key={index}>
                                 {fileExtension.match(/(jpg|jpeg|png|gif|bmp|webp|svg)$/) ? (
                                     <div className='resume-image-container'>
+                                        <div className='btn-container-photos'>
+                                            <div className='another'>
+                                                <img
+                                                    src={downloadSVG}
+                                                    alt='download'
+                                                    className="delete-svg"
+                                                    onClick={() => handleDownload(resume._id)}
+                                                />
+                                                <img
+                                                        src={deleteSVG}
+                                                        alt="delete"
+                                                        className="delete-svg"
+                                                        onClick={() => handleClick(resume._id)}
+                                                />  
+                                            </div>
+                                           
+                                        </div>
                                         <img
                                             src={`http://localhost:4000/images/${resume.image}`}
                                             alt={`resume-${index}`}
                                             className="resume-image"
                                         />
-                                        <img
-                                                src={deleteSVG}
-                                                alt="delete"
-                                                className="delete-svg"
-                                                onClick={() => handleClick(resume._id)}
-                                            />
+                                        
+                                        
                                     </div>
                                     
                                     
-                                ) : (
+                                ) : (   
                                     <div className={`file-preview file-${fileExtension}`}>
                                         {fileExtension === 'pdf' && (
                                             <img className={`file-icon file-icon-${fileExtension}`}
@@ -131,6 +193,12 @@ const Resumes = () => {
                                         <span className="file-name">{resume.image}</span>
 
                                         <div className='file-btns'>
+                                            <img
+                                                src={downloadSVG}
+                                                alt='download'
+                                                className="download-svg"
+                                                onClick={() => handleDownload(resume._id)}
+                                            />
                                             <img
                                                 src={deleteSVG}
                                                 alt="delete"

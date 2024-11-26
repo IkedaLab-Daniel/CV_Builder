@@ -40,4 +40,27 @@ router.post('/upload', upload.single('file'), uploadResume);
 router.get('/getResumes', getResumes);
 router.delete('/delete/:id', deleteResume)
 
+// Serve files for download
+router.get('/download/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.resolve(__dirname, '../public/images', filename);
+
+  // Check if the file exists
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error('File does not exist:', filePath);
+      return res.status(404).json({ error: 'File not found' });
+    }
+
+    // Send the file for download
+    res.download(filePath, filename, (err) => {
+      if (err) {
+        console.error('Error sending file:', err);
+        res.status(500).json({ error: 'Could not download the file' });
+      }
+    });
+  });
+});
+
+
 module.exports = router;

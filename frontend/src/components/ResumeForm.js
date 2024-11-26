@@ -3,6 +3,13 @@ import toast from 'react-hot-toast';
 import { useResumesContext } from '../hooks/useResumeContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
+// imgs
+import pdf from '../assets/pdf.svg'
+import doc from '../assets/doc.svg'
+import ppt from '../assets/ppt.svg'
+import imgIcon from '../assets/image-icon.svg'
+import question from '../assets/question.svg'
+
 const ResumeForm = () => {
     const { user } = useAuthContext()
     const {dispatch} = useResumesContext()
@@ -74,7 +81,33 @@ const ResumeForm = () => {
 
     return(
         <div className="resumeForm">
-            <h1>Upload IMG Resume</h1>
+            <h1>Upload File</h1>
+            <div className='small-icons-container'>
+                <div className='small-icons'>
+                    <img 
+                        src={pdf}
+                        alt='pdf'
+                    />
+                    <img 
+                        src={doc}
+                        alt='doc'
+                    />
+                    <img 
+                        src={ppt}
+                        alt='ppt'
+                    />
+                    <img 
+                        src={imgIcon}
+                        alt='image'
+                    />
+                </div>
+                
+                <img 
+                    src={question}
+                    alt='question'
+                    className='question'
+                />
+            </div>
             <input 
                 type="file" 
                 onChange={e => setFile(e.target.files[0])} 

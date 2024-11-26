@@ -138,10 +138,36 @@ div.error {
   width: 82%;
 }
 
+.btn-container-photos{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-container-photos .another{
+  position: relative;
+  right: 20%;
+  background-color: #69696954;
+  border-radius: 5px;
+  padding: 10px 20px 5px 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-container-photos img{
+  width: 40px;
+}
+
+
+
 .file-btns{
   position: absolute;
   right: 25%;
+  display: flex;
+  gap: 10px;
 }
+
 .delete-svg {
   width: 30px;
   position: relative;
@@ -150,7 +176,17 @@ div.error {
 
 .delete-svg:hover {
   transform: scale(1.2); 
-  opacity: 1;
+  cursor: pointer;
+}
+
+.download-svg {
+  width: 30px;
+  position: relative;
+  transition: .4s;
+}
+
+.download-svg:hover {
+  transform: scale(1.2); 
   cursor: pointer;
 }
 
@@ -182,6 +218,27 @@ input[type="file"]::file-selector-button {
   border-radius: 5px;
   padding: 20px;
   height: 100%;
+}
+
+.resumeForm .small-icons-container{
+  display: flex;
+  gap: 10px;
+} 
+
+.resumeForm .small-icons-container .small-icons{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.resumeForm .small-icons-container img{
+  width: 30px;
+}
+
+.resumeForm .small-icons-container .question{
+  align-self: flex-end;
+  cursor: pointer;
 }
 /* END resume/js */
 
@@ -690,7 +747,7 @@ nav .profile-name:active{
   100%{
     transform:translate((0px, 0px));
     opacity: 1;
-    width: 90%;
+    width: 80%;
   }
 }
 
