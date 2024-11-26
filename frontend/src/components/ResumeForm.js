@@ -17,6 +17,8 @@ const ResumeForm = () => {
     const [toggleDisable, setToggleDisable] = useState({
         background: 'rgb(66, 66, 66)', cursor: 'not-allowed', opacity: '0.3'
     });
+    const [show, setShow ] = useState(false)
+    const [height, setHeight] = useState({height: "auto"})
 
     
     // Use a ref for the input element to reset it
@@ -79,6 +81,26 @@ const ResumeForm = () => {
         }
     }, [file]);
 
+    const changeHeight = () => {
+        if (show === false){
+            setShow(true)
+        } else{
+            setShow(false)
+        }
+
+        if (show === false){
+            setHeight(prev => ({
+                ...prev,
+                height: "0px"
+            }))
+        } else{
+            setHeight(prev => ({
+                ...prev,
+                height: "auto"
+            }))
+        }
+        
+    }
     return(
         <div className="resumeForm">
             <h1>Upload File</h1>
@@ -106,7 +128,20 @@ const ResumeForm = () => {
                     src={question}
                     alt='question'
                     className='question'
+                    onClick={changeHeight}
                 />
+            </div>
+
+            <div className='message-container' style={height}>
+                <span>Can Upload:</span><br/>
+                <ul>
+                    <li>Image</li>
+                    <li>PDF</li>
+                    <li>DOC</li>
+                    <li>docx</li>
+                    <li>PPT</li>
+                    <li>PPTx</li>
+                </ul>
             </div>
             <input 
                 type="file" 

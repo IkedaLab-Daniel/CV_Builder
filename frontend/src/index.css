@@ -201,11 +201,12 @@ input[type="file"]::file-selector-button {
 } 
 
 .green-btn{
+  width: 100%;
   border: 0;
   color: #fff;
   padding: 10px;
   font-family: "Poppins";
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition: .4s;
 }
@@ -216,8 +217,9 @@ input[type="file"]::file-selector-button {
 
 .resumeForm{
   border-radius: 5px;
-  padding: 20px;
+  padding: 20px 20px 20px 40px;
   height: 100%;
+  border-left: 4px solid #1aac838b;
 }
 
 .resumeForm .small-icons-container{
@@ -239,7 +241,27 @@ input[type="file"]::file-selector-button {
 .resumeForm .small-icons-container .question{
   align-self: flex-end;
   cursor: pointer;
+  transition: .4s;
 }
+
+.resumeForm .small-icons-container .question:hover{
+  transform: scale(1.2);
+}
+
+.resumeForm .message-container{
+  background-color: rgb(227, 227, 227);
+  border-radius: 15px;
+  margin-top: 10px;
+  transition: .4;
+  overflow-y: hidden;
+  padding-top: 10px;
+}
+
+.resumeForm .message-container span{
+  padding: 30px;
+  font-weight: bold;
+}
+
 /* END resume/js */
 
 /* Nightmode */
