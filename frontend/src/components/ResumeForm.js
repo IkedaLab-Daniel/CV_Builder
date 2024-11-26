@@ -80,8 +80,7 @@ const ResumeForm = () => {
                 onChange={e => setFile(e.target.files[0])} 
                 required
                 ref={fileInputRef}  // Attach ref here
-                accept="image/*" 
-            />
+                accept="image/*,.pdf,.doc,.docx,.ppt,.pptx"/>
             <button style={toggleDisable} className='green-btn' onClick={handleUpload}>Upload</button>
         </div>
     )
