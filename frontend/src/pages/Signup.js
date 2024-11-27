@@ -12,10 +12,14 @@ const Signup = () => {
     const [suffix, setSuffix] = useState('')
     const [username, setUsername] = useState('')
     const [dateofbirth, setDateofbirth] = useState('')
-    const {signup, error, isloading} = useSignup('')
+    const {signup, error, isloading, setError} = useSignup('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (password !== confirmPassword){
+            return setError('Confirm password does not match.')
+        }
 
         await signup(email, password, firstName, middleName, lastName, suffix, username, dateofbirth)
     }

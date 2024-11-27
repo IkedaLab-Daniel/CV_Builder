@@ -52,34 +52,6 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
-.workout-details {
-  background: #fff;
-  border-radius: 4px;
-  margin: 20px auto;
-  padding: 20px;
-  position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
-.workout-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.workout-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.workout-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
-}
 
 /* new workout form */
 label, input {
@@ -143,6 +115,7 @@ div.error {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  animation: delayedUp 2s;
 }
 
 .btn-container-photos .another{
@@ -226,6 +199,15 @@ input[type="file"]::file-selector-button {
   display: flex;
   gap: 10px;
 } 
+
+.small-icon{
+  transition: .4s;
+}
+
+.small-icon:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
 
 .resumeForm .small-icons-container .small-icons{
   display: flex;
@@ -328,6 +310,7 @@ input[type="file"]::file-selector-button {
   border-radius: 15px;
   box-shadow: 0px 0px 15px 0px rgba(86, 86, 86, 0.4);
   transition: .4s;
+  overflow-x: hidden;
 }
 
 .file-preview:hover{
@@ -644,6 +627,8 @@ nav .profile-name:active{
 .profile-modal .right{
   width: 60%;
   margin-bottom: 50px;
+  padding-left: 20px;
+  border-left: 3px dashed rgb(117, 117, 117);
 }
 
 .profile-modal .right label{
@@ -812,5 +797,17 @@ nav .profile-name:active{
   }
   100%{
     opacity: 0;
+  }
+}
+
+@keyframes delayedUp {
+  0%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
   }
 }

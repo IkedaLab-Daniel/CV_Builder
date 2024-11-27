@@ -11,7 +11,7 @@ import logoutLogo from '../assets/logout.svg'
 import defaultProfile from '../assets/default.svg'
 
 const Navbar = () => {
-  const {updateUser, isLoading, error} = useUpdateUser()
+  const {updateUser, error} = useUpdateUser()
 
   const [toggleMenu, setToggleMenu] = useState(false) // Tracks whether the menu is open
   const [isAnimating, setIsAnimating] = useState(false) // Tracks if the reverse animation is running

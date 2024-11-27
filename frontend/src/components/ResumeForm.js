@@ -9,6 +9,7 @@ import doc from '../assets/doc.svg'
 import ppt from '../assets/ppt.svg'
 import imgIcon from '../assets/image-icon.svg'
 import question from '../assets/question.svg'
+import close from '../assets/close.svg'
 
 const ResumeForm = () => {
     const { user } = useAuthContext()
@@ -18,8 +19,10 @@ const ResumeForm = () => {
         background: 'rgb(66, 66, 66)', cursor: 'not-allowed', opacity: '0.3'
     });
     const [show, setShow ] = useState(false)
-    const [height, setHeight] = useState({height: "auto"})
-
+    const [height, setHeight] = useState({height: "0px"})
+    const [message, setMessasge] = useState(
+        
+    )
     
     // Use a ref for the input element to reset it
     const fileInputRef = useRef(null);
@@ -84,23 +87,34 @@ const ResumeForm = () => {
     const changeHeight = () => {
         if (show === false){
             setShow(true)
-        } else{
-            setShow(false)
+        } else{ 
+            setShow(false)            
         }
 
         if (show === false){
             setHeight(prev => ({
                 ...prev,
-                height: "0px"
+                height: "auto"
             }))
         } else{
             setHeight(prev => ({
                 ...prev,
-                height: "auto"
+                height: "0px"
             }))
         }
         
     }
+
+    const upHeightOnly = () => {
+        if (show === false){
+            setShow(true)
+        } 
+        setHeight(prev => ({
+            ...prev,
+            height: "auto"
+        }))
+    }
+    
     return(
         <div className="resumeForm">
             <h1>Upload File</h1>
@@ -109,23 +123,31 @@ const ResumeForm = () => {
                     <img 
                         src={pdf}
                         alt='pdf'
+                        onClick={(pdf) => upHeightOnly}
+                        className='small-icon'
                     />
                     <img 
                         src={doc}
                         alt='doc'
+                        onClick={upHeightOnly}
+                        className='small-icon'
                     />
                     <img 
                         src={ppt}
                         alt='ppt'
+                        onClick={upHeightOnly}
+                        className='small-icon'
                     />
                     <img 
                         src={imgIcon}
                         alt='image'
+                        onClick={upHeightOnly}
+                        className='small-icon'
                     />
                 </div>
                 
                 <img 
-                    src={question}
+                    src={show ? close : question}
                     alt='question'
                     className='question'
                     onClick={changeHeight}
@@ -134,11 +156,11 @@ const ResumeForm = () => {
 
             <div className='message-container' style={height}>
                 <span>Can Upload:</span><br/>
-                <ul>
+                <ul>    
                     <li>Image</li>
                     <li>PDF</li>
                     <li>DOC</li>
-                    <li>docx</li>
+                    <li>DOCx</li>
                     <li>PPT</li>
                     <li>PPTx</li>
                 </ul>
