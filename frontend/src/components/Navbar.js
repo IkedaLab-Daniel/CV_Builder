@@ -325,7 +325,7 @@ const handleUploadImage = async () => {
       )}
       
 
-      <Toaster position="bottom-right" />
+      <Toaster position="bottom-right" containerId="bottom-right-toaster"/>
     </header>
   )
 }

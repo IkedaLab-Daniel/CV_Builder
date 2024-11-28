@@ -28,9 +28,14 @@ export const useSignup = () => {
             // update the auth contect
             dispatch({type: 'LOGIN', payload: json})
             setIsLoading(false)
-            toast.success('Login Successful', {
-                duration: 4000,  // 4 seconds
-              });
+            toast.success(`Welcome, ${json.userData.firstName}!`, {
+                duration: 8000,
+                style: {
+                    border: "1px solid #4caf50", 
+                    padding: "16px", 
+                    fontSize: "1.2rem", 
+                  },
+            });
         }
     }
 

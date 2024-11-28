@@ -19,16 +19,24 @@ const ResumeForm = () => {
         background: 'rgb(66, 66, 66)', cursor: 'not-allowed', opacity: '0.3'
     });
     const [show, setShow ] = useState(false)
-    const [height, setHeight] = useState({height: "0px"})
-    const [message, setMessasge] = useState(
-        
-    )
-    
+    const [height, setHeight] = useState({height: "0px"})        
+    const maxSizeInMB = 15;
+    const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
     // Use a ref for the input element to reset it
     const fileInputRef = useRef(null);
 
     const handleUpload = (e) => {
         e.preventDefault()
+
+        if (!file){
+            toast.error('No file uploaded')
+            return
+        }
+
+        if (file.size > maxSizeInBytes) {
+            toast.error(`File size exceeds the ${maxSizeInMB}MB limit.`)
+            return
+        }
 
         const formdata = new FormData();
         formdata.append('file', file);
@@ -140,7 +148,7 @@ const ResumeForm = () => {
                     />
                     <img 
                         src={imgIcon}
-                        alt='image'
+                        alt='icon'
                         onClick={upHeightOnly}
                         className='small-icon'
                     />

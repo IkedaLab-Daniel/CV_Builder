@@ -15,6 +15,13 @@
 #user-profile-logo-big{
   border: 3px solid #1aac83;
 }
+
+/* Toaster */
+.react-hot-toast__progress-bar {
+  background-color: #4caf50; /* Green progress bar */
+  height: 4px; /* Thickness of the progress bar */
+}
+
 /* layout */
 :root {
   --primary: #1aac83;

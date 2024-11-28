@@ -1,11 +1,8 @@
-import { useState } from "react"
-// import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
-// components
-// import WorkoutDetails from "../components/WorkoutDetails"
-// import WorkoutForm from "../components/WorkoutForm"
+import { useEffect, useState } from "react"
 import Resumes from "../components/Resumes"
 import ResumeForm from "../components/ResumeForm"
 import logo from '../assets/logo-favicon.png'
+
 // imgs
 import info from "../assets/info.svg"
 import react from "../assets/react.svg"
@@ -16,21 +13,6 @@ import callejas from "../assets/callejas.jpg"
 import sangalang from "../assets/sangalang.jpeg"
 
 const Home = () => {
-  // const {workouts, dispatch} = useWorkoutsContext()
-
-  // useEffect(() => {
-  //   const fetchWorkouts = async () => {
-  //     const response = await fetch('/api/workouts')
-  //     const json = await response.json()
-
-  //     if (response.ok) {
-  //       dispatch({type: 'SET_WORKOUTS', payload: json})
-  //     }
-  //   }
-
-  //   fetchWorkouts()
-  // }, [dispatch])
-
   // Modal
   const [toggleModal, setToggleModal] = useState({display: "none"})
   const [count, setCount] = useState(2)
@@ -104,8 +86,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-
     </div>
   )
 }

@@ -218,7 +218,6 @@ const handleDownload = async (id) => {
                     </div>
                 )}
             </div>
-            <Toaster position="bottom-right" />
         </div>
     );
 };
