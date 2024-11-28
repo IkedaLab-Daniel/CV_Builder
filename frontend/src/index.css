@@ -244,11 +244,29 @@ input[type="file"]::file-selector-button {
   transition: .4;
   overflow-y: hidden;
   padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .resumeForm .message-container span{
-  padding: 30px;
+  padding: 10px 30px 0 30px;
   font-weight: bold;
+  margin: 0;
+}
+
+.resumeForm .message-container ul{
+  margin: 0;
+}
+
+.resumeForm .message-container .bottom-note{
+  font-weight: normal;
+  color: black;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0;
+  align-self: flex-end;
+  padding: 0 10px 5px 0;
 }
 
 /* END resume/js */

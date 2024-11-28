@@ -9,9 +9,9 @@ import react from "../assets/react.svg"
 import node from "../assets/node.svg"
 import express from "../assets/express2.svg"
 import mongodb from "../assets/mongodb.svg"
-import callejas from "../assets/callejas.jpg"
-import sangalang from "../assets/sangalang.jpeg"
-
+import callejas from "../assets/me-black.jpg"
+import sangalang from "../assets/sangalang2.jpg"
+import meta from "../assets/meta.png"
 const Home = () => {
   // Modal
   const [toggleModal, setToggleModal] = useState({display: "none"})
@@ -58,12 +58,14 @@ const Home = () => {
           <img src={callejas} alt="callejas" className="profile" />
         </div>
         <p className="name">Mark Daniel V. Callejas</p>
-        <p className="nametag">Lead Dev | Full Stack</p>
+        <p className="nametag"> 
+        <img src={meta} alt="meta" style={{width: "25px", marginRight: "5px"}}/>
+        META Certified Front End Dev</p>
         <div className="img-container">
               <img src={sangalang} alt="sangalang" className="profile"/>
         </div>
         <p className="name">Markedrei T. Sangalang</p>
-        <p className="nametag">Tagabili ng Ice Cream / Cafe</p>
+        <p className="nametag">🍦🧋 Tagabili ng Ice Cream and MilkTea</p>
         <br/>
         <p className="name">Stack</p>
         <p className="top">MERN</p>

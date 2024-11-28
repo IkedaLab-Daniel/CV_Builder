@@ -35,7 +35,7 @@ const ResumeForm = () => {
 
         if (file.size > maxSizeInBytes) {
             toast.error(`File size exceeds the ${maxSizeInMB}MB limit.`)
-            return
+            return  
         }
 
         const formdata = new FormData();
@@ -163,7 +163,7 @@ const ResumeForm = () => {
             </div>
 
             <div className='message-container' style={height}>
-                <span>Can Upload:</span><br/>
+                <span>Can Upload:</span>
                 <ul>    
                     <li>Image</li>
                     <li>PDF</li>
@@ -172,6 +172,7 @@ const ResumeForm = () => {
                     <li>PPT</li>
                     <li>PPTx</li>
                 </ul>
+                <span className='bottom-note'>Maximum of 15MB</span>
             </div>
             <input 
                 type="file" 
