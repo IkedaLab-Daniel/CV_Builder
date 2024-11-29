@@ -51,15 +51,12 @@ const Navbar = () => {
 
   const handleMenu = () => {
     if (toggleMenu) {
-      // Start reverse animation
       setIsAnimating(true)
-      // Delay hiding the menu until the animation ends
       setTimeout(() => {
         setToggleMenu(false)
         setIsAnimating(false)
-      }, 1000) // Match the animation duration in CSS
+      }, 1000) 
     } else {
-      // Show the menu
       setToggleMenu(true)
     }
   }
@@ -89,6 +86,12 @@ const Navbar = () => {
     await updateUser(user.userData._id, updatedData, user.token);
     if (error == null){
       setEditmode(false)
+      setFirstName('')
+      setMiddleName('')
+      setLastName('')
+      setSuffix('')
+      setDateofbirth('')
+      setUsername('')
     }
 };
 
@@ -114,7 +117,6 @@ const handleUploadImage = async () => {
       const updatedUser = await response.json();
       toast.success("Profile image updated successfully.");
       setSelectedImage(null);
-      // Update user context to reflect the new profile image
       user.userData.profileImage = updatedUser.profileImage;
     } else {
       const errorData = await response.json();
