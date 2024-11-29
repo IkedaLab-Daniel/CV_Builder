@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { useResumesContext } from '../hooks/useResumeContext';
 import deleteSVG from '../assets/delete.svg';
 import { useAuthContext } from '../hooks/useAuthContext';

@@ -79,7 +79,14 @@ userSchema.statics.signup = async function(email, password, firstName, middleNam
         inputSuffix = suffix
     }
 
-    const user = await this.create({ email, password: hash, firstName, middleName, lastName, suffix: inputSuffix, username, dateofbirth})
+    let inputMiddleName;
+    if (!middleName){
+        inputMiddleName = ' '
+    } else{
+        inputMiddleName = middleName
+    }
+
+    const user = await this.create({ email, password: hash, firstName, middleName: inputMiddleName, lastName, suffix: inputSuffix, username, dateofbirth})
 
     return user
 }

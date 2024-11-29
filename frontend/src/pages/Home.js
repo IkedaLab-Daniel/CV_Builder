@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Resumes from "../components/Resumes"
 import ResumeForm from "../components/ResumeForm"
 import logo from '../assets/logo-favicon.png'
@@ -12,6 +12,7 @@ import mongodb from "../assets/mongodb.svg"
 import callejas from "../assets/me-black.jpg"
 import sangalang from "../assets/sangalang2.jpg"
 import meta from "../assets/meta.png"
+
 const Home = () => {
   // Modal
   const [toggleModal, setToggleModal] = useState({display: "none"})

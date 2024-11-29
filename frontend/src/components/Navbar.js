@@ -11,7 +11,7 @@ import logoutLogo from '../assets/logout.svg'
 import defaultProfile from '../assets/default.svg'
 
 const Navbar = () => {
-  const {updateUser, error} = useUpdateUser()
+  const {updateUser, error, usernameTaken, setUsernameTaken} = useUpdateUser()
 
   const [toggleMenu, setToggleMenu] = useState(false) // Tracks whether the menu is open
   const [isAnimating, setIsAnimating] = useState(false) // Tracks if the reverse animation is running
@@ -26,7 +26,6 @@ const Navbar = () => {
   const [username, setUsername] = useState('')
   const [dateofbirth, setDateofbirth] = useState('')
   const [selectedImage, setSelectedImage] = useState(null);
-
   const [editmode, setEditmode] = useState(false)
   const [isClosing, setIsClosing] = useState(false);
   const handleToggleModal = () => {
@@ -66,7 +65,14 @@ const Navbar = () => {
   }
 
   const handleCancelEdit = () => {
-    setEditmode(false)
+      setEditmode(false)
+      setFirstName('')
+      setMiddleName('')
+      setLastName('')
+      setSuffix('')
+      setDateofbirth('')
+      setUsername('')
+      setUsernameTaken(false)
   }
 
   const handleUpdateUser = async () => {
@@ -83,16 +89,23 @@ const Navbar = () => {
         username,
         dateofbirth,
     };
-    await updateUser(user.userData._id, updatedData, user.token);
-    if (error == null){
-      setEditmode(false)
-      setFirstName('')
-      setMiddleName('')
-      setLastName('')
-      setSuffix('')
-      setDateofbirth('')
-      setUsername('')
+
+    const action = await updateUser(user.userData._id, updatedData, user.token)
+    if (action){
+        if (error === false){          
+        setEditmode(false)
+        setFirstName('')
+        setMiddleName('')
+        setLastName('')
+        setSuffix('')
+        setDateofbirth('')
+        setUsername('')
+        setUsernameTaken(false)
+      }else{
+        setEditmode(true)
+      }
     }
+    
 };
 
 const handleUploadImage = async () => {
@@ -262,6 +275,7 @@ const handleUploadImage = async () => {
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                     placeholder={user.userData.username}
+                    style={usernameTaken ? {border: "2px solid red"} : {}}
                   />  
 
                   <label className='label-editing'>Birthday:</label>

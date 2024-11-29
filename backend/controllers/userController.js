@@ -39,8 +39,18 @@ const singupUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     const { id } = req.params
+    const { username } = req.body
 
     console.log('Request Body:', req.body);
+
+    const currentUser = await User.findById(id);
+    // Check if the new username is already taken by another user
+    if (username && username !== currentUser.username) {
+      const existingUser = await User.findOne({ username: username });
+      if (existingUser) {
+          return res.status(400).json({ error: 'Username already taken' });
+      }
+  }
    
     const user = await User.findOneAndUpdate({_id: id}, {
       ...req.body
