@@ -38,6 +38,7 @@ export const useUpdateUser = () => {
         }
 
         if (response.ok) {
+            setError(false)
             // Update local storage with the new user data
             const updatedUser = { ...JSON.parse(localStorage.getItem('user')), userData: json };
             localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -46,12 +47,11 @@ export const useUpdateUser = () => {
             dispatch({ type: 'LOGIN', payload: updatedUser });
 
             setIsLoading(false);
-            setError(false)
             setUsernameTaken(false)
             toast.success('User updated successfully', {
                 duration: 4000,
             });
-            return ('Success')
+            return ('success')
         }
     };
 

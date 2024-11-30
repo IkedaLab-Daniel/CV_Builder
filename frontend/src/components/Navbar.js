@@ -92,7 +92,7 @@ const Navbar = () => {
 
     const action = await updateUser(user.userData._id, updatedData, user.token)
     if (action){
-        if (error === false){          
+        if (action === 'success'){          
         setEditmode(false)
         setFirstName('')
         setMiddleName('')

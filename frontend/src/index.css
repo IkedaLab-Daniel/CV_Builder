@@ -507,6 +507,15 @@ input[type="file"]::file-selector-button {
   animation: fadeIn .5s ease;
 }
 
+.to-certificate{
+  transition: .4s;
+  text-decoration: none;
+  color: black;
+}
+.to-certificate:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
 /* Login + SignUp || navbar */
 nav {
   display: flex;

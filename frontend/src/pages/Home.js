@@ -59,9 +59,11 @@ const Home = () => {
           <img src={callejas} alt="callejas" className="profile" />
         </div>
         <p className="name">Mark Daniel V. Callejas</p>
-        <p className="nametag"> 
-        <img src={meta} alt="meta" style={{width: "25px", marginRight: "5px"}}/>
-        META Certified Front End Dev</p>
+        <a href="https://www.credly.com/badges/84e6444a-1f9b-4ecc-8c1a-ea8d253da3ec" rel="noopener noreferrer" target="_blank" className="to-certificate">
+          <p className="nametag"> 
+          <img src={meta} alt="meta" style={{width: "25px", marginRight: "5px"}}/>
+          META Front End Dev</p>
+        </a>
         <div className="img-container">
               <img src={sangalang} alt="sangalang" className="profile"/>
         </div>
