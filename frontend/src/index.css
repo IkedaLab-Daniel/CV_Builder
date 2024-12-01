@@ -733,6 +733,77 @@ nav .profile-name:active{
   transition: .4s;
 }
 
+.logout-modal{
+  background-color: rgba(255, 255, 255, 0.8);
+  width: auto;
+  height: auto;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 1.5px rgb(109, 109, 109);
+  border-radius: 10px;
+  box-shadow: 2px 2px 25px rgba(0,0,0,.3);
+  transition: .5s;
+  z-index: 3;
+  padding: 10px 25px;
+  animation: topToMid .5s ease;
+  overflow-y: scroll;
+}
+
+.logout-modal .heading{
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  display: block;
+  margin: 10px;
+}
+
+.logout-modal .message{
+  font-size: 1.1rem;
+  text-align: center;
+  display: block;
+  margin: 10px;
+}
+
+.logout-modal .logout-btns{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0px 10px 0px;
+}
+
+.logout-modal .logout-btns span{
+  border: 2px solid var(--primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--primary);
+}
+
+.logout-modal .logout-btns .confirm{
+  transition: .4s;
+}
+
+.logout-modal .logout-btns .confirm:hover{
+  cursor: pointer;
+  color: white;
+  background-color: var(--primary);
+}
+
+.logout-modal .logout-btns .cancel{
+  transition: .4s;
+}
+
+.logout-modal .logout-btns .cancel:hover{
+  border: 2px solid var(--error);
+  cursor: pointer;
+  color: white;
+  background-color: var(--error);
+}
+
+
+
+
 
 
 .btn-container .edit:hover{

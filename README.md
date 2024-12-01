@@ -17,9 +17,9 @@ In this website, users can register an account, upload, delete, and download doc
 
 ## Features
 
-- Feature 1: Sign Up and Log In Authentication
-- Feature 2: File upload, deletion, and download
-- Feature 3: Update user details and profile photo
+- Sign Up and Log In Authentication
+- File upload, deletion, and download
+- Update user details and profile photo
 
 ---
 

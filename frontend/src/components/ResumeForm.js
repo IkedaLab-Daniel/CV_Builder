@@ -20,7 +20,7 @@ const ResumeForm = () => {
     });
     const [show, setShow ] = useState(false)
     const [height, setHeight] = useState({height: "0px"})        
-    const maxSizeInMB = 15;
+    const maxSizeInMB = 5;
     const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
     // Use a ref for the input element to reset it
     const fileInputRef = useRef(null);
@@ -172,7 +172,7 @@ const ResumeForm = () => {
                     <li>PPT</li>
                     <li>PPTx</li>
                 </ul>
-                <span className='bottom-note'>Maximum of 15MB</span>
+                <span className='bottom-note'>Maximum of 5MB</span>
             </div>
             <input 
                 type="file" 

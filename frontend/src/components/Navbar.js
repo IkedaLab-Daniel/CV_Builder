@@ -13,9 +13,10 @@ import defaultProfile from '../assets/default.svg'
 const Navbar = () => {
   const {updateUser, usernameTaken, setUsernameTaken} = useUpdateUser()
 
-  const [toggleMenu, setToggleMenu] = useState(false) // Tracks whether the menu is open
-  const [isAnimating, setIsAnimating] = useState(false) // Tracks if the reverse animation is running
+  const [toggleMenu, setToggleMenu] = useState(false) 
+  const [isAnimating, setIsAnimating] = useState(false) 
   const [toggleModal, setToggleModal] = useState({display: "none"})
+  const [toggleModalLogout, setToggleModalLogout] = useState({display: "none"})
   const { user } = useAuthContext()
   const { logout } = useLogout()
 
@@ -28,6 +29,8 @@ const Navbar = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [editmode, setEditmode] = useState(false)
   const [isClosing, setIsClosing] = useState(false);
+  const [toggleLogout, setToggleLogout] = useState(false)
+
   const handleToggleModal = () => {
     if (toggleModal.display === "block") {
       setIsClosing(true);
@@ -42,6 +45,8 @@ const Navbar = () => {
 
   const handleClick = () => {
     setToggleMenu(false)
+    setToggleModalLogout({display: "none"})
+    setToggleLogout(false)
     logout()
     toast.success('User logged-out', {
       duration: 4000,  // 4 seconds
@@ -140,10 +145,25 @@ const handleUploadImage = async () => {
   }
 };
 
+const handleConfirmLogout = () =>{
+  if (toggleLogout === false){
+    setToggleLogout(true)
+    setToggleModalLogout({display: "block"})
+  } else{
+    setIsClosing(true);
+    setToggleLogout(false)
+    setTimeout( () => {
+      setToggleModalLogout({display: "none"})
+      setIsClosing(false)
+    }, 500)
+    
+  }
+}
 
   return (
     <header>
       <div className={`darkbg ${isClosing ? 'closing' : ''}`} style={toggleModal} onClick={handleToggleModal}></div>
+      <div className={`darkbg ${isClosing ? 'closing' : ''}`} style={toggleModalLogout} onClick={handleConfirmLogout}></div>
       <div className="container">
         <Link to="/">
           <img 
@@ -179,7 +199,7 @@ const handleUploadImage = async () => {
                     <img src={profileLogo} alt='profile' />
                     Profile
                   </span>
-                  <span className='btn' onClick={handleClick}>
+                  <span className='btn' onClick={handleConfirmLogout}>
                     <img src={logoutLogo} alt='logout' />
                     Logout
                   </span>
@@ -322,13 +342,6 @@ const handleUploadImage = async () => {
             </div>
           </div>
           )}
-
-          
-
-          
-          
-          
-          
           <div className='btn-container'>
             <span className='edit' onClick={editmode ? handleUpdateUser : handleEdit}>
               {editmode ? 'Save' : 'Edit'}
@@ -340,6 +353,14 @@ const handleUploadImage = async () => {
         </div>
       )}
       
+      <div className='logout-modal' style={toggleLogout ? {display: "block"} : {display: "none"}}>
+          <span className='heading'>Confirm Logout</span>
+          <span className='message'>Are you sure you want to logout?</span>
+          <div  className='logout-btns'>
+              <span onClick={handleClick} className='confirm'>Confirm</span>
+              <span onClick={handleConfirmLogout} className='cancel'>Cancel</span>
+          </div>
+      </div>
 
       <Toaster position="bottom-right" containerId="bottom-right-toaster"/>
     </header>
