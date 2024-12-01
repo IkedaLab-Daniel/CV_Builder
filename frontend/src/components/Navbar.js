@@ -86,6 +86,14 @@ const Navbar = () => {
       return;
     }
 
+    if (username.length > 12){
+      return toast.error('Username must not exceed to 12 characters')
+    }
+
+    if (username.includes(" ")){
+        return toast.error('Username must not have white space')
+    }
+
     const updatedData = {
         firstName,
         middleName,

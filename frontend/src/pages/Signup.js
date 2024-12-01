@@ -21,6 +21,14 @@ const Signup = () => {
             return setError('Confirm password does not match.')
         }
 
+        if (username.length > 12){
+            return setError('Username must not exceed to 12 characters')
+        }
+
+        if (username.includes(" ")){
+            return setError('Username must not have white space')
+        }
+
         await signup(email, password, firstName, middleName, lastName, suffix, username, dateofbirth)
     }
 
@@ -69,7 +77,7 @@ const Signup = () => {
             type="text"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
-            placeholder="username"
+            placeholder="(maximum of 12 characters, no white-space)"
             />
 
             <label>Password:</label>

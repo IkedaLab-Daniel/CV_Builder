@@ -791,6 +791,8 @@ nav .profile-name:active{
 }
 
 .logout-modal .logout-btns .cancel{
+  border: 2px solid var(--error);
+  color: var(--error);
   transition: .4s;
 }
 

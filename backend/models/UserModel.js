@@ -66,7 +66,7 @@ userSchema.statics.signup = async function(email, password, firstName, middleNam
     const usernameExists = await this.findOne({ username })
     
     if (usernameExists){
-        throw Error('Username already in use')
+        throw Error('Username already taken')
     }
 
     const daniel = await bcrypt.genSalt(10)
