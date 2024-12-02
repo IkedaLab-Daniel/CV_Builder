@@ -152,8 +152,6 @@ const handleDownload = async (id) => {
                                             alt={`resume-${index}`}
                                             className="resume-image"
                                         />
-                                        
-                                        
                                     </div>
                                     
                                     
