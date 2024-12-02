@@ -53,6 +53,27 @@ header a {
   margin: 0 auto;
 }
 
+.custom-dropdown{
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.custom-dropdown:hover {
+  border-color: #888;
+}
+
+.custom-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--primary);
+  border-color: var(--primary);
+}
+
 /* homepage */
 .home {
   display: grid;
@@ -550,6 +571,29 @@ form .dual-input{
   column-gap: 20px;
 }
 
+.dual-entry{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  width: 90%;
+}
+
+.an-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.an-input input{
+  margin: 0;
+}
+
+.an-input label{
+  position: relative;
+  top: -5px;
+}
+
 nav .hidden{
   display: flex;
   flex-direction: column;
@@ -558,7 +602,7 @@ nav .hidden{
   width: 150px;
   border-radius: 5px;
   animation: right-to-left .5s;
-  right: 10px;
+  right: -5px;
   border: 2px solid var(--primary);
   background-color: white;
 }
@@ -675,7 +719,7 @@ nav .profile-name:active{
 }
 
 .label-editing{
-  margin: 0;
+  margin: 0 10px 0 0;
   font-size: 0.9rem;
 }
 

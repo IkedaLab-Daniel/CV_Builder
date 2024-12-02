@@ -40,6 +40,12 @@ const userSchema = new Schema({
     },
     profileImage:{
         type: String
+    },
+    address: {
+        type: String
+    },
+    sex: {
+        type: String
     }
 }) 
 

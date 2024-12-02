@@ -30,6 +30,8 @@ const Navbar = () => {
   const [editmode, setEditmode] = useState(false)
   const [isClosing, setIsClosing] = useState(false);
   const [toggleLogout, setToggleLogout] = useState(false)
+  const [address, setAddress] = useState('')
+  const [sex, setSex] = useState('')
 
   const handleToggleModal = () => {
     if (toggleModal.display === "block") {
@@ -77,6 +79,8 @@ const Navbar = () => {
       setSuffix('')
       setDateofbirth('')
       setUsername('')
+      setAddress('')
+      setSex('')
       setUsernameTaken(false)
   }
 
@@ -101,6 +105,8 @@ const Navbar = () => {
         suffix,
         username,
         dateofbirth,
+        address,
+        sex,
     };
 
     const action = await updateUser(user.userData._id, updatedData, user.token)
@@ -113,6 +119,8 @@ const Navbar = () => {
         setSuffix('')
         setDateofbirth('')
         setUsername('')
+        setAddress('')
+        setSex('')
         setUsernameTaken(false)
       }else{
         setEditmode(true)
@@ -289,14 +297,27 @@ const handleConfirmLogout = () =>{
                     placeholder={user.userData.lastName}
                   />
 
-                  <label className='label-editing'>Suffix:</label>
-                  <input 
-                    type='text'
-                    onChange={(e) => setSuffix(e.target.value)}
-                    value={suffix}
-                    placeholder={user.userData.suffix}
-
-                  />  
+                  <div className='dual-entry'>
+                    <div className='an-input'>
+                      <label className='label-editing'>Suffix:</label>
+                      <input 
+                        type='text'
+                        onChange={(e) => setSuffix(e.target.value)}
+                        value={suffix}
+                        placeholder={user.userData.suffix}
+                      />  
+                    </div>
+                    <div className='an-input'>
+                      <label className='label-editing'>Sex:</label>
+                      <select id="dropdown" className="custom-dropdown" value={sex} onChange={(e) => setSex(e.target.value)}>
+                        <option value="">Select an option</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                      </select>
+                    </div>
+                  </div>
+                  
                   <label className='label-editing'>Username:</label>
                   <input 
                     type='text'
@@ -313,6 +334,13 @@ const handleConfirmLogout = () =>{
                     value={dateofbirth}
                     placeholder={user.userData.dateofbirth}
                   />  
+                  <label className='label-editing'>Address:</label>
+                  <input 
+                    type='text'
+                    onChange={(e) => setAddress(e.target.value)}
+                    value={address}
+                    placeholder={user.userData.address}
+                  />
               </div>
               </div>
 
@@ -344,7 +372,24 @@ const handleConfirmLogout = () =>{
 
                 <label>Birthday:</label>
                 <span>{user.userData.dateofbirth}</span>
+                
+                {user.userData.address ? (
+                  <>
+                    <label>Address:</label>
+                    <span>{user.userData.address}</span>
+                  </>
+                ) : (
+                  <></>
+                )}
 
+                {user.userData.sex ? (
+                  <>
+                    <label>Address:</label>
+                    <span>{user.userData.sex}</span>
+                  </>
+                ) : (
+                  <></>
+                )}
                 <label>Account ID</label>
                 <span>{user.userData._id}</span>
             </div>
