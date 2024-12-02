@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignup"
 import { Toaster } from "react-hot-toast"
+import { Link } from "react-router-dom"
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -111,6 +112,11 @@ const Signup = () => {
             />
             <button disabled={isloading}>Sign Up</button>
             {error && <div className="error">{error}</div>}
+            <div className="director-container">
+                <Link to="/login" className="link-to-other-form">
+                    <span>Already have an account? Log in</span>
+                </Link>
+            </div>
             <Toaster position="bottom-right" />
         </form>
     )

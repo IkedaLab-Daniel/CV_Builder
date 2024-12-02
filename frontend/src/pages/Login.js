@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
 import { Toaster } from "react-hot-toast"
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const {login, isLoading, error} = useLogin()
@@ -14,7 +15,7 @@ const Login = () => {
     }
 
     return(
-        <form className="signup" onSubmit={handleSubmit}>
+        <form className="login" onSubmit={handleSubmit}>
             <h3>Log In</h3>
             <label>Email:</label>
             <input 
@@ -31,6 +32,12 @@ const Login = () => {
 
             <button disabled={isLoading}>Log In</button>
 
+            <div className="director-container">
+                <Link to="/signup" className="link-to-other-form">
+                    <span>Don't have an account? Sign Up</span>
+                </Link>
+            </div>
+            
             {error && <div className="error">{error}</div>}
             <Toaster position="bottom-right" />
         </form>

@@ -81,7 +81,6 @@ header a {
   gap: 100px;
 }
 
-/* new workout form */
 label, input {
   display: block;
 }
@@ -103,10 +102,12 @@ form button {
   border-radius: 4px;
   cursor: pointer;
   transition: .4s;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 form button:hover{
-  transform: translate(-2px, 2px);
+  transform: translate(0px, 2px);
 }
 /* need fix */
 div.error {
@@ -555,11 +556,38 @@ nav button {
   cursor: pointer;
   font-size: 1em;
 }
+
+.director-container{
+  width: 100%;  
+}
+
+.director-container{
+  text-align: center;
+}
+
+.link-to-other-form{
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: rgb(54, 54, 54);
+}
+
+.link-to-other-form:hover{
+  text-decoration: underline;
+}
+
 /* auth forms */
-form.signup, form.login {
+form.signup {
   width: 700px;
   margin: 40px auto;
   padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+form.login{
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px 20px 20px 20px;
   background: #fff;
   border-radius: 4px;
 }
@@ -602,7 +630,7 @@ nav .hidden{
   width: 150px;
   border-radius: 5px;
   animation: right-to-left .5s;
-  right: -5px;
+  right: 10px;
   border: 2px solid var(--primary);
   background-color: white;
 }
