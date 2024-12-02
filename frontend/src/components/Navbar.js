@@ -384,7 +384,7 @@ const handleConfirmLogout = () =>{
 
                 {user.userData.sex ? (
                   <>
-                    <label>Address:</label>
+                    <label>Sex:</label>
                     <span>{user.userData.sex}</span>
                   </>
                 ) : (
