@@ -226,8 +226,8 @@ const handleConfirmLogout = () =>{
           )}
           {!user && (
             <div>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link to="/login" className='button'>Login</Link>
+              <Link to="/signup" className='button'>Signup</Link>
             </div>
           )}
           

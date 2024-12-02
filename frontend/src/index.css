@@ -27,13 +27,22 @@
   --primary: #1aac83;
   --error: #e7195a;
 }
+
 body {
-  background: #f1f1f1;
+  background-image: url(./assets/bg3-50.png);
+  background-repeat: no-repeat;
+  background-size: cover;    
+  background-position: center;
+  background-attachment: fixed;
   margin: 0;
   font-family: "Poppins";
 }
+
 header {
   background: #fff;
+  box-shadow: 2px 2px 25px rgba(0,0,0,.2);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 header .container {
   max-width: 1400px;
@@ -260,7 +269,7 @@ input[type="file"]::file-selector-button {
 }
 
 .resumeForm .message-container{
-  background-color: rgb(227, 227, 227);
+  background-color: rgb(230, 230, 230);
   border-radius: 15px;
   margin-top: 10px;
   transition: .4;
@@ -546,7 +555,7 @@ nav {
 nav a {
   margin-left: 10px;
 }
-nav button {
+nav .button {
   background: #fff;
   color: var(--primary);
   border: 2px solid var(--primary);
@@ -555,6 +564,17 @@ nav button {
   font-family: "Poppins";
   cursor: pointer;
   font-size: 1em;
+  cursor: pointer;
+  transition: .4s;
+}
+
+nav .button:hover{
+  background-color: var(--primary);
+  color: white;
+}
+
+nav .button:active{
+  opacity: 0.5;
 }
 
 .director-container{
@@ -577,11 +597,13 @@ nav button {
 
 /* auth forms */
 form.signup {
-  width: 700px;
+  width: 600px;
   margin: 40px auto;
   padding: 20px;
   background: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
+  border: 2px rgb(0, 0, 0, 0.1) solid;
+  box-shadow: 2px 2px 25px rgba(0,0,0,.2);
 }
 
 form.login{
@@ -589,7 +611,9 @@ form.login{
   margin: 40px auto;
   padding: 20px 20px 20px 20px;
   background: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
+  border: 2px rgb(0, 0, 0, 0.1) solid;
+  box-shadow: 2px 2px 25px rgba(0,0,0,.2);
 }
 
 form .dual-input{
@@ -911,6 +935,7 @@ nav .profile-name:active{
       top: 50%;
     }
 }
+
 
 @keyframes fadeIn{
   0%{
