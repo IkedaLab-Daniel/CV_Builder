@@ -88,8 +88,8 @@ header a {
 /* homepage */
 .home {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  grid-template-columns: 2fr 1fr;
+  gap: 0px;
 }
 
 label, input {
@@ -156,10 +156,14 @@ div.error {
 
 /* resume.js */
 
+.resume-container{
+  padding: 20px;
+}
+
 .resume-wrapper {
-  position: relative; /* Establish a positioning context for children */
-  display: flex; /* Optional: Keeps the layout inline if necessary */
-  margin-bottom: 20px; /* Add space between items */
+  position: relative; 
+  display: flex; 
+  margin-bottom: 20px; 
 }
 
 .resume-image {
@@ -167,11 +171,13 @@ div.error {
   box-shadow: 1px 0px 35px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   transition: 0.5s;
-  animation: left-to-right 1s;
+  /* animation: left-to-right 1s; */
 }
 
 .resume-image:hover {
-  width: 82%;
+  transform: scale(102%) translate(0, 5px);
+  cursor: pointer;
+  opacity: .8;
 }
 
 .btn-container-photos{
@@ -180,6 +186,7 @@ div.error {
   justify-content: flex-end;
   gap: 10px;
   animation: delayedUp 2s;
+  z-index: 1;
 }
 
 .btn-container-photos .another{
@@ -261,6 +268,7 @@ input[type="file"]::file-selector-button {
   position: sticky;
   top: 60px;
   z-index: 1;
+  max-width: 270px;
 }
 
 .resumeForm .small-icons-container{
@@ -406,7 +414,7 @@ input[type="file"]::file-selector-button {
 }
 
 .file-preview span{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
 }
 
@@ -659,7 +667,7 @@ form .dual-input{
   justify-content: center;
   align-items: center;
   column-gap: 20px;
-  width: 90%;
+  width: 95%;
 }
 
 .an-input{
@@ -753,7 +761,7 @@ nav .profile-name:active{
 /* Profile Modal */
 .profile-modal{
   background-color: rgba(248, 248, 248, 0.9);
-  width: 800px;
+  width: 750px;
   height: auto;  
   position: fixed;
   top: 50%;
@@ -788,33 +796,35 @@ nav .profile-name:active{
 
 .profile-modal .right{
   width: 60%;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   padding-left: 20px;
   border-left: 3px dashed rgb(117, 117, 117);
 }
 
 .profile-modal .right label{
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 10px;
+  font-size: .9rem;
 }
 
 .profile-modal .right span{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .label-editing{
   margin: 0 10px 0 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .profile-modal .right input{
-  margin-top: 0;
-  width: 90%;
+  margin: 0 0 10px 0;
+  width: 95%;
 }
 
 .profile-modal h2{
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .profile-modal.closing {
@@ -848,17 +858,19 @@ nav .profile-name:active{
   display: flex;
   justify-content: flex-end;
   border-top: 2px solid var(--primary);
+  margin: 0 10px;
 }
 
 .profile-modal .btn-container span{
   border: solid var(--primary) 2px;
   border-radius: 5px;
-  padding: 5px 15px;
-  margin: 10px 20px 10px 0;
+  padding: 3px 12px;
+  margin: 10px 10px 10px 0;
   color: var(--primary);
   width: 50px;
   text-align: center;
   transition: .4s;
+  font-size: .9rem;
 }
 
 .logout-modal{

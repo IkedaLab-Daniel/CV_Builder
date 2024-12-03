@@ -43,6 +43,8 @@ const Navbar = () => {
     } else {
       setToggleModal({ display: "block" });
     }
+
+    handleMenu()
   };
 
   const handleClick = () => {
@@ -305,6 +307,7 @@ const handleConfirmLogout = () =>{
                         onChange={(e) => setSuffix(e.target.value)}
                         value={suffix}
                         placeholder={user.userData.suffix}
+                        style={{position: "relative", top: "5px"}}
                       />  
                     </div>
                     <div className='an-input'>
@@ -318,7 +321,7 @@ const handleConfirmLogout = () =>{
                     </div>
                   </div>
                   
-                  <label className='label-editing'>Username:</label>
+                  <label className='label-editing' style={{marginTop: "5px"}}>Username:</label>
                   <input 
                     type='text'
                     onChange={(e) => setUsername(e.target.value)}

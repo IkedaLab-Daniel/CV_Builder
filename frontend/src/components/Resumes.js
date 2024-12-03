@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useResumesContext } from '../hooks/useResumeContext';
 import deleteSVG from '../assets/delete.svg';
@@ -14,7 +14,15 @@ import downloadSVG from '../assets/download.svg'
 const Resumes = () => {
     const { resumes, dispatch } = useResumesContext();
     const { user } = useAuthContext();
-
+    const [small, setSmall] = useState(false)
+    
+    const toggleSize = () => {
+        if (small === false){
+            setSmall(true)
+        } else{
+            setSmall(false)
+        }
+    }
     useEffect(() => {
         const fetchResumes = () => {
             fetch('/api/resumes/getResumes', {
@@ -131,7 +139,9 @@ const handleDownload = async (id) => {
                                 {fileExtension.match(/(jpg|jpeg|png|gif|bmp|webp|svg)$/) ? (
                                     <div className='resume-image-container'>
                                         <div className='btn-container-photos'>
-                                            <div className='another'>
+                                            <div className='another'
+                                                style={ small ? {display: "none"} : {display : "block"}}
+                                            >
                                                 <img
                                                     src={downloadSVG}
                                                     alt='download'
@@ -151,6 +161,8 @@ const handleDownload = async (id) => {
                                             src={`http://localhost:4000/images/${resume.image}`}
                                             alt={`resume-${index}`}
                                             className="resume-image"
+                                            style={ small ? {width: "200px"} : {width: "80%"}}
+                                            onClick={toggleSize}
                                         />
                                     </div>
                                     
