@@ -102,8 +102,9 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             placeholder="Must be atleast 8 characters, include one uppercase, lowercase, number, and symbol"
+            style={{marginBottom: "0px"}}
             />
-            <div className="showpass-container">
+            <div className="showpass-container" style={{position: "relative", top: "19px"}}>
                 {showpassword ? (
                     <img className='showpass input-icon' src={eyeOpen} alt='close' onClick={handleShowpass} />
                 ) : (

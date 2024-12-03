@@ -260,6 +260,7 @@ input[type="file"]::file-selector-button {
   max-height: 80vh;
   position: sticky;
   top: 60px;
+  z-index: 1;
 }
 
 .resumeForm .small-icons-container{
@@ -307,6 +308,7 @@ input[type="file"]::file-selector-button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 99;
 }
 
 .resumeForm .message-container span{
@@ -563,7 +565,7 @@ input[type="file"]::file-selector-button {
   opacity: 0.5;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   animation: fadeIn .5s ease;
 }
 
@@ -686,6 +688,7 @@ nav .hidden{
   right: 10px;
   border: 2px solid var(--primary);
   background-color: white;
+  z-index: 2;
 }
 
 nav .hidden.closing {

@@ -131,7 +131,7 @@ const ResumeForm = () => {
                     <img 
                         src={pdf}
                         alt='pdf'
-                        onClick={(pdf) => upHeightOnly}
+                        onClick={upHeightOnly}
                         className='small-icon'
                     />
                     <img 
