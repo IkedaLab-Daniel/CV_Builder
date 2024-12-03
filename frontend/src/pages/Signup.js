@@ -3,6 +3,11 @@ import { useSignup } from "../hooks/useSignup"
 import { Toaster } from "react-hot-toast"
 import { Link } from "react-router-dom"
 
+// imgs
+// imgs
+import eyeClose from '../assets/eye-close.svg'
+import eyeOpen from '../assets/eye-open.svg'
+
 const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -14,7 +19,17 @@ const Signup = () => {
     const [username, setUsername] = useState('')
     const [dateofbirth, setDateofbirth] = useState('')
     const {signup, error, isloading, setError} = useSignup('')
+    const [showpassword, setShowpassword] = useState(false)
 
+    const handleShowpass = () => {
+        if (showpassword === false){
+            setShowpassword(true)
+        } else{
+            setShowpassword(false)
+
+        }
+    }
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -83,11 +98,19 @@ const Signup = () => {
 
             <label>Password:</label>
             <input 
-            type="password"
+            type={showpassword ? 'text' : 'password'}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             placeholder="Must be atleast 8 characters, include one uppercase, lowercase, number, and symbol"
             />
+            <div className="showpass-container">
+                {showpassword ? (
+                    <img className='showpass input-icon' src={eyeOpen} alt='close' onClick={handleShowpass} />
+                ) : (
+                    <img className='showpass input-icon' src={eyeClose} alt='open' onClick={handleShowpass} />
+                )}
+                <span className="showpass" onClick={handleShowpass}>{showpassword ? '| Hide' : '| Show'}</span>
+            </div>
             <label>Confirm Password:</label>
             <input 
             type="password"

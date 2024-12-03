@@ -10,6 +10,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border: 2px solid var(--primary);
 }
 
 #user-profile-logo-big{
@@ -117,6 +118,30 @@ form button {
 
 form button:hover{
   transform: translate(0px, 2px);
+}
+
+form .input-icon{
+  width: 15px;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+form .showpass-container{
+  display: flex;
+  justify-content: flex-end;
+}
+
+form .showpass{
+  font-size: 0.8rem;
+  position: relative;
+  top: -46px;
+  right: 10px;
+}
+
+form .showpass:hover{
+  cursor: pointer;
+  font-weight: 500;
 }
 /* need fix */
 div.error {
