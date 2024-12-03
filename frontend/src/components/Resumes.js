@@ -118,7 +118,7 @@ const handleDownload = async (id) => {
 
     return (
         <div>
-            <h1>My Resumes</h1>
+            <h1>My Files:</h1>
 
             {/* Render all files in reverse order */}
             <div className="resume-container">
