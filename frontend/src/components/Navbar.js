@@ -90,8 +90,8 @@ const Navbar = () => {
       return;
     }
 
-    if (username.length > 12){
-      return toast.error('Username must not exceed to 12 characters')
+    if (username.length > 15){
+      return toast.error('Username must not exceed to 15 characters')
     }
 
     if (username.includes(" ")){

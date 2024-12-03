@@ -37,8 +37,8 @@ const Signup = () => {
             return setError('Confirm password does not match.')
         }
 
-        if (username.length > 12){
-            return setError('Username must not exceed to 12 characters')
+        if (username.length > 15){
+            return setError('Username must not exceed to 15 characters')
         }
 
         if (username.includes(" ")){
@@ -93,7 +93,7 @@ const Signup = () => {
             type="text"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
-            placeholder="(maximum of 12 characters, no white-space)"
+            placeholder="(maximum of 15 characters, no white-space)"
             />
 
             <label>Password:</label>
