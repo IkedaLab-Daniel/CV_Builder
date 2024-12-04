@@ -56,7 +56,7 @@ const Home = () => {
         <a href="https://www.credly.com/badges/84e6444a-1f9b-4ecc-8c1a-ea8d253da3ec" rel="noopener noreferrer" target="_blank" className="to-certificate">
           <p className="nametag"> 
           <img src={meta} alt="meta" style={{width: "25px", marginRight: "5px"}}/>
-          META Front End Dev</p>
+          META Front-End Development Professional</p>
         </a>
         <div className="img-container">
               <img src={sangalang} alt="sangalang" className="profile"/>
@@ -83,6 +83,7 @@ const Home = () => {
             <img src={node} alt="node" />
             <span>Node</span>
           </div>
+          <span>Mak Danyel pugi</span>
         </div>
       </div>
     </div>
