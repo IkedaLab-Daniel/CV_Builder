@@ -54,12 +54,14 @@ header .container {
   align-items: center;
   justify-content: space-between;
 }
+
 header a {
   color: #333;
   text-decoration: none;
 }
+
 .pages{
-  max-width: 1400px;
+  max-width: 100vw;
   padding: 20px;
   margin: 0 auto;
 }
@@ -144,6 +146,7 @@ form .showpass:hover{
   cursor: pointer;
   font-weight: 500;
 }
+
 /* need fix */
 div.error {
   padding: 10px;
@@ -171,7 +174,6 @@ div.error {
   box-shadow: 1px 0px 35px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   transition: 0.5s;
-  /* animation: left-to-right 1s; */
 }
 
 .resume-image:hover {
@@ -568,13 +570,12 @@ input[type="file"]::file-selector-button {
 .darkbg{
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   background-color: black;
   opacity: 0.5;
   top: 0;
   left: 0;
   z-index: 3;
-  animation: fadeIn .5s ease;
 }
 
 .to-certificate{
@@ -1058,4 +1059,294 @@ nav .profile-name:active{
   100%{
     opacity: 1;
   }
+}
+
+/*    Responsiveness      */
+
+@media only screen and (max-width: 768px) {
+  #logo-long{
+    width: 100px;
+  }
+
+  header{
+    width: 100vw;
+  }
+
+  header .container {
+    margin: 0 auto;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  nav .button {
+    background: #fff;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.7em;
+    cursor: pointer;
+    transition: .4s;
+  }
+
+  form.login{
+    width: 70vw;
+    margin: 40px auto;
+    padding: 20px 20px 20px 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 2px rgb(0, 0, 0, 0.1) solid;
+    box-shadow: 2px 2px 25px rgba(0,0,0,.2);
+  }
+
+  form.signup {
+    width: 70vw;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 2px rgb(0, 0, 0, 0.1) solid;
+    box-shadow: 2px 2px 25px rgba(0,0,0,.2);
+  }
+
+  form .dual-input{
+    display: flex;
+    align-items: flex-start;
+    column-gap: 20px;
+    flex-direction: column;
+  }
+
+  .showpass{
+    background-color: white;
+  }
+
+  nav .profile-name span{
+    display: none;
+  }
+
+  #user-profile-logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0px;
+  }
+
+  nav .hidden{
+    width: 120px;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+  }
+
+  .no-file{
+    margin: 20px;
+  }
+
+  .no-file img{
+    width: 60px;
+  }
+
+  .no-file p{
+    font-size: 1rem;
+  }
+  
+  
+  .resumeForm {
+    order: -1; 
+  }
+  
+  .resumeForm{
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    height: 100%;
+    border-left: 0px solid #1aac834b;
+    width: auto;
+    position: static;
+  }
+  
+  .resumeForm h1{
+    font-size: 1.2rem;
+  }
+
+  .resumeForm .small-icons-container img{
+    width: 25px;
+  }
+
+  .resumeForm .message-container{
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    margin-top: 5px;
+    transition: .4;
+    padding-top: 5px;
+  }
+
+  .resumeForm .message-container span{
+    padding: 5px 15px 0 15px;
+    font-weight: bold;
+    margin: 0;
+    font-size: .8rem;
+  }
+
+  .resumeForm .message-container li{
+    font-size: .8rem;
+  }
+
+  .resumeForm .message-container .bottom-note{
+    font-size: .7rem;
+  }
+
+  .resume-container{
+    padding: 5px;
+  }
+
+  .pages{
+    padding: 15px;
+  }
+
+  .file-preview{
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .file-preview .file-icon{
+    width: 30px;
+    margin: 15px 5px 15px 10px;
+  }
+
+  .file-preview .file-name{
+    font-size: .7rem;
+    max-width: 52%;
+    overflow-x: hidden;
+  }
+
+  .file-btns{
+    position: absolute;
+    right: 5%;
+    display: flex;
+    gap: 10px;
+  }
+
+  .file-btns img{
+    width: 20px;
+    background: transparent;
+  }
+
+  .btn-container-photos .another{
+    padding: 5px 10px;
+  }
+
+  .btn-container-photos .another img{
+    width: 25px;
+  }
+
+  .home h1{
+    font-size: 1.2rem;
+  }
+
+  .info-modal{
+    width: 90vw;
+  }
+
+  .info-modal .top{
+    margin: 20px 10px;
+  }
+
+  .info-modal .name{
+    font-size: 1.1rem;
+  }
+
+  .info-modal .nametag{
+    font-size: 0.7rem;
+  }
+
+  .info-modal .stack-container{
+    width: 90%;
+  }
+
+  .info-modal .stack-container span{
+    font-size: .7rem; 
+ }
+
+  .stack-container img{
+    width: 40px;
+  }
+
+  .profile-modal{
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: scroll;
+    animation: fadeIn 1s ease;
+  }
+
+  .modal-context{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-modal .right{
+    width: 90%;
+    margin-bottom: 5px;
+    padding-left: 0px;
+    border-left: 0px dashed rgb(117, 117, 117);
+  }
+
+  .profile-modal .right label{
+    font-size: .7rem;
+  }
+
+  .profile-modal .right span{
+    font-size: 1rem;
+  }
+
+  .profile-modal .left img{
+    width: 60px;
+    margin-top: 5px;
+  }
+
+  .profile-modal h2{
+    font-size: 1rem;
+    margin-bottom: 0
+  }
+
+  .nightmode{
+    display: none;
+  }
+
+  .dual-entry{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .an-input{
+    width: 100%;
+  }
+
+  .an-input select{
+    width: 100%;
+  }
+
+  .left .custom-input{
+    width: 80vw;
+    margin-bottom: 5px;
+  }
+
+  .left .upload-profile{
+    width: 50vw;
+    font-size: .8rem;
+    text-align: center;
+  }
+
+
 }

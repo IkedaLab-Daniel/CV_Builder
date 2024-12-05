@@ -110,7 +110,6 @@ const Signup = () => {
                 ) : (
                     <img className='showpass input-icon' src={eyeClose} alt='open' onClick={handleShowpass} />
                 )}
-                <span className="showpass" onClick={handleShowpass}>{showpassword ? '| Hide' : '| Show'}</span>
             </div>
             <label>Confirm Password:</label>
             <input 

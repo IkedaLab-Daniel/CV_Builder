@@ -62,7 +62,7 @@ const Home = () => {
               <img src={sangalang} alt="sangalang" className="profile"/>
         </div>
         <p className="name">Markedrei T. Sangalang</p>
-        <p className="nametag">🍦🧋 Tagabili ng Ice Cream and MilkTea</p>
+        <p className="nametag">🎨🖌️ Graphic Designer</p>
         <br/>
         <p className="name">Stack</p>
         <p className="top">MERN</p>
