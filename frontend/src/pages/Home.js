@@ -83,7 +83,6 @@ const Home = () => {
             <img src={node} alt="node" />
             <span>Node</span>
           </div>
-          <span>Mak Danyel pugi</span>
         </div>
       </div>
     </div>
