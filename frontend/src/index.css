@@ -762,6 +762,7 @@ nav .profile-name:active{
 /* Profile Modal */
 .profile-modal{
   background-color: rgba(248, 248, 248, 0.9);
+  max-height: 90vh;
   width: 750px;
   height: auto;  
   position: fixed;
