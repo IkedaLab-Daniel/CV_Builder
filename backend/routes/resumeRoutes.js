@@ -9,7 +9,7 @@ const requireAuth = require('../middleware/requireAuth')
 // Multer setup
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.resolve(__dirname, '../public/images')); // Specify the destination folder
+    cb(null, path.resolve(__dirname, '../public/images')); 
   },
   filename: (req, file, cb) => {
     const uploadPath = path.resolve(__dirname, '../public/images', file.originalname);

@@ -131,6 +131,8 @@ const Navbar = () => {
     
 };
 
+
+
 const handleUploadImage = async () => {
   if (!selectedImage) {
     toast.error("Please select an image.");
