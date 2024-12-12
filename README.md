@@ -5,7 +5,7 @@ In this website, users can register an account, upload, delete, and download doc
 ---
 
 ## Table of Contents
-- [Tech Stack](#Stack)
+- [Stack](#Stack)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -17,9 +17,8 @@ In this website, users can register an account, upload, delete, and download doc
 ---
 
 ## Stack
-<h2>Tech Stack</h2>
 <p>
-  <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5" width="50" height="50" />
+  <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png](https://static.wikia.nocookie.net/sudo/images/0/0d/React-icon.png/revision/latest/scale-to-width-down/441?cb=20220914080120" alt=React" width="50" height="50" />
   <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3" width="50" height="50" />
   <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" width="50" height="50" />
 </p>
