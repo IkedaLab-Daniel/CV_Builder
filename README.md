@@ -5,7 +5,7 @@ In this website, users can register an account, upload, delete, and download doc
 ---
 
 ## Table of Contents
-- [Stack](#Stack)
+- [Technologies](#Technologies)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -16,11 +16,13 @@ In this website, users can register an account, upload, delete, and download doc
 
 ---
 
-## Stack
+## Technologoes
 <p>
-  <img src="frontend/src/assets/react.svg" alt=React" width="50" height="50" />
+  <img src="frontend/src/assets/react.svg" alt="React" width="50" height="50" />
   <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3" width="50" height="50" />
-  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" width="50" height="50" />
+  <img src="frontend/src/assets/node.svg" alt="node" width="50" height="50" />
+  <img src="frontend/src/assets/express2.svg" alt="express" width="50" height="50" />
+  <img src="frontend/src/assets/mongodb.svg" alt="mongodb" width="50" height="50" />
 </p>
 
 
