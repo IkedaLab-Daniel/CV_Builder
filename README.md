@@ -16,7 +16,7 @@ In this website, users can register an account, upload, delete, and download doc
 
 ---
 
-## Technologoes
+## Technologies
 <p>
   <img src="frontend/src/assets/react.svg" alt="React" width="50" height="50" />
   <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3" width="50" height="50" />
@@ -60,6 +60,6 @@ Follow these steps to set up the project locally:
     npm install
     ```
 
-    More to be added ...
+More to be added ...
 
 
