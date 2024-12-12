@@ -5,6 +5,7 @@ In this website, users can register an account, upload, delete, and download doc
 ---
 
 ## Table of Contents
+- [Tech Stack](#Stack)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -14,6 +15,12 @@ In this website, users can register an account, upload, delete, and download doc
 - [Contact](#contact)
 
 ---
+
+## Stack
+![HTML5](https://cdn-icons-png.flaticon.com/512/732/732212.png)
+![CSS3](https://cdn-icons-png.flaticon.com/512/732/732190.png)
+![JavaScript](https://cdn-icons-png.flaticon.com/512/5968/5968292.png)
+
 
 ## Features
 
