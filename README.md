@@ -41,7 +41,7 @@ Follow these steps to set up the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/IkedaLab-Daniel/CV_Builder
+   git clone https://github.com/IkedaLab-Daniel/CV_Drive
     ```
 2. Navigate to the project folder
     ```bash
@@ -59,5 +59,7 @@ Follow these steps to set up the project locally:
     cd backend
     npm install
     ```
+
+    More to be added ...
 
 
