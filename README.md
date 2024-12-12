@@ -17,9 +17,13 @@ In this website, users can register an account, upload, delete, and download doc
 ---
 
 ## Stack
-![HTML5](https://cdn-icons-png.flaticon.com/512/732/732212.png)
-![CSS3](https://cdn-icons-png.flaticon.com/512/732/732190.png)
-![JavaScript](https://cdn-icons-png.flaticon.com/512/5968/5968292.png)
+<h2>Tech Stack</h2>
+<p>
+  <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5" width="50" height="50" />
+  <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3" width="50" height="50" />
+  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" width="50" height="50" />
+</p>
+
 
 
 ## Features
